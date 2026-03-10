@@ -3,13 +3,13 @@
   "configurations": [
     {
       "name": "storybook",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["dev"],
+      "runtimeExecutable": "packages/storybook/node_modules/.bin/storybook",
+      "runtimeArgs": ["dev", "--host", "127.0.0.1", "--port", "6006", "--no-open", "--config-dir", "packages/storybook/.storybook"],
       "port": 6006
     },
     {
       "name": "docs",
-      "runtimeExecutable": "pnpm",
+      "runtimeExecutable": "/usr/local/lib/node_modules/corepack/shims/pnpm",
       "runtimeArgs": ["dev:docs"],
       "port": 3000
     }
