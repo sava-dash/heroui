@@ -31,7 +31,12 @@ const socialProofAvatars = [
   "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/purple.jpg",
 ];
 
-export function CreateAccountScreen() {
+export type CreateAccountScreenProps = {
+  /** Called when the user successfully submits the sign-up form. */
+  onSuccess?: () => void;
+};
+
+export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
   const [accepted, setAccepted] = React.useState(false);
 
   return (
@@ -106,6 +111,7 @@ export function CreateAccountScreen() {
             className="flex flex-col gap-4"
             onSubmit={(e) => {
               e.preventDefault();
+              onSuccess?.();
             }}
           >
             <TextField name="fullname" type="text">
