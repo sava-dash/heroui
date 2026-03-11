@@ -5,7 +5,7 @@
     "figmaUrl": "https://www.figma.com/design/F9VrW5esdIH3eIPpfBp1Ru/-YT--HeroUI-Figma-Kit",
     "description": "Maps Figma design tokens to HeroUI v3 CSS custom properties and source code",
     "source": "Figma Desktop Bridge \u2014 live extraction",
-    "lastUpdated": "2026-03-10",
+    "lastUpdated": "2026-03-11",
     "versionNote": "The Figma Kit uses HeroUI v2 naming conventions (content1-4, primary/secondary as brand colors). HeroUI v3 code uses a redesigned token system (surface/overlay/accent with oklch colors). Mappings document conceptual equivalence; actual color values differ between Kit and v3.",
     "figmaCollections": {
       "Primitives": {
@@ -26,8 +26,8 @@
         "description": "Semantic tokens aliasing Primitives, with light and dark modes. Includes color tokens and layout constants (opacity, font sizes, line heights, radii, border widths)."
       }
     },
-    "figmaLastModified": "2026-03-10T11:35:55Z",
-    "figmaVersion": "2329286964735471506",
+    "figmaLastModified": "2026-03-11T08:54:18Z",
+    "figmaVersion": "2329619274966400991",
     "figmaComponentCount": 20,
     "figmaStyleCount": 204
   },
@@ -2059,7 +2059,7 @@
     ]
   },
   "components": {
-    "description": "Mapping between Figma component pages and HeroUI v3 source code. Figma pages: 31 | Repo-only (no Figma page yet): 53.",
+    "description": "Mapping between Figma component pages and HeroUI v3 source code. Figma pages: 31 | Repo-only (no Figma page yet): 54.",
     "codeStructure": {
       "cssFile": "packages/styles/components/<name>.css",
       "stylesTs": "packages/styles/src/components/<name>/<name>.styles.ts",
@@ -2339,18 +2339,18 @@
       {
         "figmaPage": null,
         "figmaPageId": null,
-        "cssFile": "packages/styles/src/components/color-swatch",
-        "reactDir": "packages/react/src/components/color-swatch/",
-        "repoOnly": true,
-        "note": "Color swatch preview"
-      },
-      {
-        "figmaPage": null,
-        "figmaPageId": null,
         "cssFile": "packages/styles/src/components/color-swatch-picker",
         "reactDir": "packages/react/src/components/color-swatch-picker/",
         "repoOnly": true,
         "note": "Color swatch palette picker"
+      },
+      {
+        "figmaPage": null,
+        "figmaPageId": null,
+        "cssFile": "packages/styles/src/components/color-swatch",
+        "reactDir": "packages/react/src/components/color-swatch/",
+        "repoOnly": true,
+        "note": "Color swatch preview"
       },
       {
         "figmaPage": null,
@@ -2403,18 +2403,18 @@
       {
         "figmaPage": null,
         "figmaPageId": null,
-        "cssFile": "packages/styles/src/components/disclosure",
-        "reactDir": "packages/react/src/components/disclosure/",
-        "repoOnly": true,
-        "note": "Single disclosure/collapsible panel"
-      },
-      {
-        "figmaPage": null,
-        "figmaPageId": null,
         "cssFile": "packages/styles/src/components/disclosure-group",
         "reactDir": "packages/react/src/components/disclosure-group/",
         "repoOnly": true,
         "note": "Group of disclosure panels"
+      },
+      {
+        "figmaPage": null,
+        "figmaPageId": null,
+        "cssFile": "packages/styles/src/components/disclosure",
+        "reactDir": "packages/react/src/components/disclosure/",
+        "repoOnly": true,
+        "note": "Single disclosure/collapsible panel"
       },
       {
         "figmaPage": null,
@@ -2459,6 +2459,14 @@
       {
         "figmaPage": null,
         "figmaPageId": null,
+        "cssFile": null,
+        "reactDir": "packages/react/src/components/form/",
+        "repoOnly": true,
+        "note": "HTML form wrapper with React Aria Forms integration"
+      },
+      {
+        "figmaPage": null,
+        "figmaPageId": null,
         "cssFile": "packages/styles/src/components/header",
         "reactDir": "packages/react/src/components/header/",
         "repoOnly": true,
@@ -2483,14 +2491,6 @@
       {
         "figmaPage": null,
         "figmaPageId": null,
-        "cssFile": "packages/styles/src/components/list-box",
-        "reactDir": "packages/react/src/components/list-box/",
-        "repoOnly": true,
-        "note": "Listbox container"
-      },
-      {
-        "figmaPage": null,
-        "figmaPageId": null,
         "cssFile": "packages/styles/src/components/list-box-item",
         "reactDir": "packages/react/src/components/list-box-item/",
         "repoOnly": true,
@@ -2507,10 +2507,10 @@
       {
         "figmaPage": null,
         "figmaPageId": null,
-        "cssFile": "packages/styles/src/components/menu",
-        "reactDir": "packages/react/src/components/menu/",
+        "cssFile": "packages/styles/src/components/list-box",
+        "reactDir": "packages/react/src/components/list-box/",
         "repoOnly": true,
-        "note": "Menu list"
+        "note": "Listbox container"
       },
       {
         "figmaPage": null,
@@ -2527,6 +2527,14 @@
         "reactDir": "packages/react/src/components/menu-section/",
         "repoOnly": true,
         "note": "Menu section/group"
+      },
+      {
+        "figmaPage": null,
+        "figmaPageId": null,
+        "cssFile": "packages/styles/src/components/menu",
+        "reactDir": "packages/react/src/components/menu/",
+        "repoOnly": true,
+        "note": "Menu list"
       },
       {
         "figmaPage": null,
@@ -2635,18 +2643,18 @@
       {
         "figmaPage": null,
         "figmaPageId": null,
-        "cssFile": "packages/styles/src/components/tag",
-        "reactDir": "packages/react/src/components/tag/",
-        "repoOnly": true,
-        "note": "Removable tag item"
-      },
-      {
-        "figmaPage": null,
-        "figmaPageId": null,
         "cssFile": "packages/styles/src/components/tag-group",
         "reactDir": "packages/react/src/components/tag-group/",
         "repoOnly": true,
         "note": "Tag group container"
+      },
+      {
+        "figmaPage": null,
+        "figmaPageId": null,
+        "cssFile": "packages/styles/src/components/tag",
+        "reactDir": "packages/react/src/components/tag/",
+        "repoOnly": true,
+        "note": "Removable tag item"
       },
       {
         "figmaPage": null,
@@ -3011,6 +3019,170 @@
         "mono"
       ],
       "codeMapping": "packages/styles/themes/default/variables.css \u2014 --font-size-* CSS custom properties"
+    }
+  },
+  "screens": {
+    "description": "New 'Screens' canvas added to Figma Kit (2026-03-11). Contains example application screens built with HeroUI components, serving as visual reference for real-world compositions.",
+    "figmaPageId": "6408:187914",
+    "figmaPageName": "Screens",
+    "screens": [
+      {
+        "id": "6408:189555",
+        "name": "create account_login",
+        "type": "FRAME",
+        "size": "1440x1024",
+        "description": "Authentication screen: account creation / login flow"
+      },
+      {
+        "id": "6408:189673",
+        "name": "Loading",
+        "type": "FRAME",
+        "size": "1440x1024",
+        "description": "Loading state screen (gradient variant)"
+      },
+      {
+        "id": "6408:189715",
+        "name": "Loading",
+        "type": "FRAME",
+        "size": "1440x1024",
+        "description": "Loading state screen (image background variant)"
+      },
+      {
+        "id": "6408:189720",
+        "name": "new onboarding",
+        "type": "FRAME",
+        "size": "1440x1024",
+        "description": "Onboarding flow screen"
+      },
+      {
+        "id": "6408:191298",
+        "name": "app logo",
+        "type": "COMPONENT_SET",
+        "size": "78x56",
+        "description": "App logo component set (variants)"
+      },
+      {
+        "id": "6410:194297",
+        "name": "V2_gradient",
+        "type": "FRAME",
+        "size": "1440x1093",
+        "description": "Gradient-style screen example (variant 1)"
+      },
+      {
+        "id": "6410:195556",
+        "name": "V2_gradient",
+        "type": "FRAME",
+        "size": "1440x1093",
+        "description": "Gradient-style screen example (variant 2)"
+      },
+      {
+        "id": "6410:196664",
+        "name": "Menu",
+        "type": "FRAME",
+        "size": "256x1061",
+        "description": "Sidebar menu screen example"
+      },
+      {
+        "id": "6410:198304",
+        "name": "Menu",
+        "type": "INSTANCE",
+        "size": "256x1061",
+        "description": "Menu component instance"
+      },
+      {
+        "id": "6412:5968",
+        "name": "V2_gradient",
+        "type": "FRAME",
+        "size": "1440x1093",
+        "description": "Gradient-style screen example (variant 3)"
+      },
+      {
+        "id": "6410:198315",
+        "name": "Tabs",
+        "type": "INSTANCE",
+        "size": "220x40",
+        "description": "Tabs component instance"
+      }
+    ]
+  },
+  "icons": {
+    "description": "Icon library documentation for HeroUI. The Figma Kit references gravity-ui icons via Iconify. Internally, packages/react/src/components/icons.tsx contains built-in SVG icons used by components.",
+    "figmaPageId": "10:1849",
+    "figmaPageName": "Icons",
+    "figmaIconCount": 232,
+    "recommendedLibrary": {
+      "name": "gravity-ui",
+      "provider": "Iconify",
+      "usage": "@iconify/react or CSS mask-image with Iconify CDN",
+      "figmaCategories": 46
+    },
+    "figmaCategories": [
+      "Arrow",
+      "Arrows (x6)",
+      "Arrows Action (x6)",
+      "Astronomy (x6)",
+      "Bold Duotone / Notes",
+      "Bold Duotone / Notifications",
+      "Building, Infrastructure (x6)",
+      "Business, Statistic (x6)",
+      "Call (x6)",
+      "Content",
+      "Design, Tools (x6)",
+      "Electronic, Devices (x6)",
+      "Emails, Messages",
+      "Essential",
+      "Essentional, UI (x6)",
+      "Faces, Emotions, Stickers (x6)",
+      "Files (x6)",
+      "Folders (x6)",
+      "Food, Kitchen (x6)",
+      "Github",
+      "Google",
+      "Hands (x6)",
+      "Home, Furniture (x6)",
+      "Info Banner",
+      "Like (x6)",
+      "List (x6)",
+      "Map & Location (x6)",
+      "Medicine (x6)",
+      "Messages, Conversation (x6)",
+      "Money (x6)",
+      "Nature, Travel (x6)",
+      "Network, Connection (x6)",
+      "Notes (x6)",
+      "Notifications (x6)",
+      "School (x6)",
+      "Search (x6)",
+      "Security (x6)",
+      "Settings, Fine Tuning (x6)",
+      "Shopping, Ecommerce (x6)",
+      "Sports (x6)",
+      "Text Formatting (x6)",
+      "Time (x6)",
+      "Transport, Parts, Service (x6)",
+      "Users (x6)",
+      "Video, Audio, Sound (x6)",
+      "Weather (x7)"
+    ],
+    "internalIcons": {
+      "file": "packages/react/src/components/icons.tsx",
+      "description": "Internal SVG React components used by HeroUI components themselves (not for user consumption as a public icon library).",
+      "icons": [
+        "IconChevronDown",
+        "IconChevronLeft",
+        "IconChevronRight",
+        "ExternalLinkIcon",
+        "CircleDashedIcon",
+        "CloseIcon",
+        "InfoIcon",
+        "WarningIcon",
+        "DangerIcon",
+        "SuccessIcon",
+        "IconMinus",
+        "IconPlus",
+        "IconSearch",
+        "IconCalendar"
+      ]
     }
   }
 }
