@@ -4,7 +4,7 @@
     "figmaFileName": "[YT] HeroUI Figma Kit",
     "figmaUrl": "https://www.figma.com/design/F9VrW5esdIH3eIPpfBp1Ru/-YT--HeroUI-Figma-Kit",
     "description": "Maps Figma design tokens to HeroUI v3 CSS custom properties and source code",
-    "source": "Figma Desktop Bridge \u2014 live extraction",
+    "source": "Figma Desktop Bridge — live extraction",
     "lastUpdated": "2026-03-11",
     "versionNote": "The Figma Kit uses HeroUI v2 naming conventions (content1-4, primary/secondary as brand colors). HeroUI v3 code uses a redesigned token system (surface/overlay/accent with oklch colors). Mappings document conceptual equivalence; actual color values differ between Kit and v3.",
     "figmaCollections": {
@@ -14,7 +14,7 @@
           "Mode 1": "245:0"
         },
         "variableCount": 138,
-        "description": "Raw color palette (blue/purple/green/red/yellow/cyan/pink/zinc scales + flat variants) and spacing unit scale. Single mode \u2014 not theme-aware."
+        "description": "Raw color palette (blue/purple/green/red/yellow/cyan/pink/zinc scales + flat variants) and spacing unit scale. Single mode — not theme-aware."
       },
       "Tokens": {
         "id": "VariableCollectionId:481:16201",
@@ -26,13 +26,27 @@
         "description": "Semantic tokens aliasing Primitives, with light and dark modes. Includes color tokens and layout constants (opacity, font sizes, line heights, radii, border widths)."
       }
     },
-    "figmaLastModified": "2026-03-11T08:54:18Z",
-    "figmaVersion": "2329619274966400991",
-    "figmaComponentCount": 20,
-    "figmaStyleCount": 204
+    "figmaLastModified": "2026-03-11T11:32:13Z",
+    "figmaVersion": "2329655686589982933",
+    "figmaComponentCount": 21,
+    "figmaStyleCount": 209,
+    "figmaChangelog": [
+      {
+        "version": "2329655686589982933",
+        "date": "2026-03-11T11:32:13Z",
+        "changes": [
+          "Added 'Emotions' icon category to Icons canvas (6441:72852)",
+          "Added 'Yours Truly Logo' component to Brand canvas (6410:197243)",
+          "Screens canvas restructured into 'Molecules' (6441:61697) and 'basic flow' (6441:76012) sections",
+          "Component count: 20 → 21",
+          "Style count: 204 → 209",
+          "New text color reference '#4A3552' on Button canvas (6407:187866)"
+        ]
+      }
+    ]
   },
   "primitives": {
-    "description": "Primitives collection \u2014 raw values not affected by theme mode.",
+    "description": "Primitives collection — raw values not affected by theme mode.",
     "colors": {
       "blue": {
         "50": "#E6F1FE",
@@ -384,7 +398,7 @@
     }
   },
   "tokens": {
-    "description": "Tokens collection \u2014 semantic, theme-aware. All color values resolved to hex.",
+    "description": "Tokens collection — semantic, theme-aware. All color values resolved to hex.",
     "colors": {
       "layout": {
         "description": "Global layout colors.",
@@ -1649,7 +1663,7 @@
     }
   },
   "tokenMappings": {
-    "description": "Figma token (v2 Kit) \u2192 HeroUI v3 CSS variable mappings. 'match' field: exact=same value, approx=similar value, conceptual=same concept with different value, N/A=no v3 equivalent.",
+    "description": "Figma token (v2 Kit) → HeroUI v3 CSS variable mappings. 'match' field: exact=same value, approx=similar value, conceptual=same concept with different value, N/A=no v3 equivalent.",
     "colors": [
       {
         "figmaVariable": "colors/layout/background",
@@ -1658,8 +1672,8 @@
         "figmaDark": "#000000",
         "v3CssVar": "--background",
         "v3TailwindColor": "background",
-        "v3Light": "oklch(0.9702 0 0) \u2248 #F7F7F7",
-        "v3Dark": "oklch(12% 0.005 285.823) \u2248 #181820",
+        "v3Light": "oklch(0.9702 0 0) ≈ #F7F7F7",
+        "v3Dark": "oklch(12% 0.005 285.823) ≈ #181820",
         "match": "conceptual",
         "note": "v3 uses off-white bg in light mode"
       },
@@ -1670,8 +1684,8 @@
         "figmaDark": "#ECEDEE",
         "v3CssVar": "--foreground",
         "v3TailwindColor": "foreground",
-        "v3Light": "var(--eclipse) \u2248 #2D2D35",
-        "v3Dark": "var(--snow) \u2248 #FAFAFA",
+        "v3Light": "var(--eclipse) ≈ #2D2D35",
+        "v3Dark": "var(--snow) ≈ #FAFAFA",
         "match": "conceptual",
         "note": "v3 uses purple-tinted dark for eclipse"
       },
@@ -1715,9 +1729,9 @@
         "v3CssVar": "--surface",
         "v3TailwindColor": "surface",
         "v3Light": "var(--white) = #FFFFFF",
-        "v3Dark": "oklch(0.2103 0.0059 285.89) \u2248 #2D2D35",
+        "v3Dark": "oklch(0.2103 0.0059 285.89) ≈ #2D2D35",
         "match": "conceptual",
-        "note": "NAMING: content1 \u2192 surface. Dark values differ (zinc vs purple-tinted)."
+        "note": "NAMING: content1 → surface. Dark values differ (zinc vs purple-tinted)."
       },
       {
         "figmaVariable": "colors/content/content2",
@@ -1773,8 +1787,8 @@
         "figmaDark": "#3F3F46",
         "v3CssVar": "--default",
         "v3TailwindColor": "default",
-        "v3Light": "oklch(94% 0.001 286.375) \u2248 #EFEFEF",
-        "v3Dark": "oklch(27.4% 0.006 286.033) \u2248 #3A3A42",
+        "v3Light": "oklch(94% 0.001 286.375) ≈ #EFEFEF",
+        "v3Dark": "oklch(27.4% 0.006 286.033) ≈ #3A3A42",
         "match": "conceptual",
         "note": "Figma = zinc/300; v3 is much lighter"
       },
@@ -1793,9 +1807,9 @@
         "figmaDark": "#006FEE",
         "v3CssVar": "--accent",
         "v3TailwindColor": "accent",
-        "v3Value": "oklch(0.6204 0.195 253.83) \u2248 #3B82F6",
+        "v3Value": "oklch(0.6204 0.195 253.83) ≈ #3B82F6",
         "match": "conceptual",
-        "note": "NAMING CHANGE: 'primary' \u2192 'accent'. v3 uses a lighter blue."
+        "note": "NAMING CHANGE: 'primary' → 'accent'. v3 uses a lighter blue."
       },
       {
         "figmaVariable": "colors/base/primary-foreground",
@@ -2127,7 +2141,7 @@
         "figmaPreviewUrl": "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d561df5a-5d92-4055-8ab0-a114e1da1d3a",
         "cssFile": null,
         "reactDir": null,
-        "note": "Figma design exists \u2014 no code implementation yet in HeroUI v3"
+        "note": "Figma design exists — no code implementation yet in HeroUI v3"
       },
       {
         "figmaPage": "Checkbox",
@@ -2159,7 +2173,7 @@
         "figmaPageId": "2584:48",
         "cssFile": "packages/styles/components/separator.css",
         "reactDir": "packages/react/src/components/separator/",
-        "note": "Figma 'Divider' \u2192 code 'separator'"
+        "note": "Figma 'Divider' → code 'separator'"
       },
       {
         "figmaPage": "Input",
@@ -2190,7 +2204,7 @@
         "figmaPageId": "3606:776",
         "cssFile": "packages/styles/components/number-field.css",
         "reactDir": "packages/react/src/components/number-field/",
-        "note": "Figma 'Number Input' \u2192 code 'number-field'"
+        "note": "Figma 'Number Input' → code 'number-field'"
       },
       {
         "figmaPage": "Progress",
@@ -2550,7 +2564,7 @@
         "cssFile": "packages/styles/src/components/number-field",
         "reactDir": "packages/react/src/components/number-field/",
         "repoOnly": true,
-        "note": "Numeric stepper input \u2014 different from Number Input in Figma which is older v2"
+        "note": "Numeric stepper input — different from Number Input in Figma which is older v2"
       },
       {
         "figmaPage": null,
@@ -2931,7 +2945,7 @@
     }
   },
   "figmaStyles": {
-    "description": "Figma named styles extracted via REST API. 204 total (201 returned). Includes shadow effects and typography. No color styles \u2014 colors are in Variables/Tokens collection.",
+    "description": "Figma named styles extracted via REST API. 204 total (201 returned). Includes shadow effects and typography. No color styles — colors are in Variables/Tokens collection.",
     "totalCount": 204,
     "shadowStyles": {
       "description": "Named shadow/effect styles. Format: shadow/{color}/{size}. Sizes: base, sm, md, lg, xl, 2xl, inner. Colors: primary, secondary, success(green), warning(yellow), danger(red), neutral(zinc).",
@@ -2952,7 +2966,7 @@
         "2xl",
         "inner"
       ],
-      "codeMapping": "packages/styles/themes/shared/theme.css \u2014 --shadow-* CSS custom properties"
+      "codeMapping": "packages/styles/themes/shared/theme.css — --shadow-* CSS custom properties"
     },
     "textStyles": {
       "description": "Named text styles. Format: text-{size}/{leading}/{weight} and special names. Named sizes: text-tiny, text-small, text-medium, text-large.",
@@ -3018,98 +3032,110 @@
         "underline",
         "mono"
       ],
-      "codeMapping": "packages/styles/themes/default/variables.css \u2014 --font-size-* CSS custom properties"
+      "codeMapping": "packages/styles/themes/default/variables.css — --font-size-* CSS custom properties"
     }
   },
   "screens": {
-    "description": "New 'Screens' canvas added to Figma Kit (2026-03-11). Contains example application screens built with HeroUI components, serving as visual reference for real-world compositions.",
+    "description": "Screens canvas (6408:187914) — example application screens and molecules built with HeroUI components. Serves as visual reference for real-world component compositions. Added 2026-03-11, updated 2026-03-11.",
     "figmaPageId": "6408:187914",
     "figmaPageName": "Screens",
-    "screens": [
-      {
-        "id": "6408:189555",
-        "name": "create account_login",
-        "type": "FRAME",
-        "size": "1440x1024",
-        "description": "Authentication screen: account creation / login flow"
+    "sections": {
+      "Molecules": {
+        "id": "6441:61697",
+        "description": "Reusable molecule-level components: navigation sidebar, card hover states, and app logo variants.",
+        "items": [
+          {
+            "id": "6410:196664",
+            "name": "Navigation/Default",
+            "type": "FRAME",
+            "size": "256x1061",
+            "description": "Sidebar navigation component: logo, grouped nav links (Account/Chat/Shop), support link, upgrade CTA, user avatar. Used as main app nav in all full-screen examples."
+          },
+          {
+            "id": "6441:62152",
+            "name": "card 1",
+            "type": "FRAME",
+            "size": "367x292",
+            "description": "Knowledge card molecule with hover state: image, category chip, title, description, stats row (documents/images/files), avatar group."
+          },
+          {
+            "id": "6441:62153",
+            "name": "card 2",
+            "type": "FRAME",
+            "size": "363x600",
+            "description": "Taller knowledge card molecule with hover state: image, category chip, title, multi-line description, stats row, avatar group."
+          },
+          {
+            "id": "6441:63302",
+            "name": "custom",
+            "type": "COMPONENT_SET",
+            "size": "78x56",
+            "description": "App logo component set with variants: google, AI, tokens, facebook. Used in navigation sidebar as branding element."
+          }
+        ]
       },
-      {
-        "id": "6408:189673",
-        "name": "Loading",
-        "type": "FRAME",
-        "size": "1440x1024",
-        "description": "Loading state screen (gradient variant)"
-      },
-      {
-        "id": "6408:189715",
-        "name": "Loading",
-        "type": "FRAME",
-        "size": "1440x1024",
-        "description": "Loading state screen (image background variant)"
-      },
-      {
-        "id": "6408:189720",
-        "name": "new onboarding",
-        "type": "FRAME",
-        "size": "1440x1024",
-        "description": "Onboarding flow screen"
-      },
-      {
-        "id": "6408:191298",
-        "name": "app logo",
-        "type": "COMPONENT_SET",
-        "size": "78x56",
-        "description": "App logo component set (variants)"
-      },
-      {
-        "id": "6410:194297",
-        "name": "V2_gradient",
-        "type": "FRAME",
-        "size": "1440x1093",
-        "description": "Gradient-style screen example (variant 1)"
-      },
-      {
-        "id": "6410:195556",
-        "name": "V2_gradient",
-        "type": "FRAME",
-        "size": "1440x1093",
-        "description": "Gradient-style screen example (variant 2)"
-      },
-      {
-        "id": "6410:196664",
-        "name": "Menu",
-        "type": "FRAME",
-        "size": "256x1061",
-        "description": "Sidebar menu screen example"
-      },
-      {
-        "id": "6410:198304",
-        "name": "Menu",
-        "type": "INSTANCE",
-        "size": "256x1061",
-        "description": "Menu component instance"
-      },
-      {
-        "id": "6412:5968",
-        "name": "V2_gradient",
-        "type": "FRAME",
-        "size": "1440x1093",
-        "description": "Gradient-style screen example (variant 3)"
-      },
-      {
-        "id": "6410:198315",
-        "name": "Tabs",
-        "type": "INSTANCE",
-        "size": "220x40",
-        "description": "Tabs component instance"
+      "basic flow": {
+        "id": "6441:76012",
+        "description": "Full 1440x1024 application screens showing complete UI flows for the 'Yours Truly' example app.",
+        "items": [
+          {
+            "id": "6408:189555",
+            "name": "create account_login",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Two-panel authentication screen. Left: brand panel with orange gradient, tagline 'Life Is Short / Make It Sweet', photo collage, social proof (70,000+ users + avatar group). Right: form with Google/Facebook OAuth buttons, Full Name/Email/Password inputs, privacy policy Checkbox, 'Sign Up' Button. Components: Button (primary + tertiary), Input, Label, Checkbox, Separator, Avatar."
+          },
+          {
+            "id": "6408:189673",
+            "name": "Loading",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Loading state screen with gradient background and Spinner."
+          },
+          {
+            "id": "6408:189715",
+            "name": "Loading",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Loading state screen with image background and Spinner."
+          },
+          {
+            "id": "6408:189720",
+            "name": "new onboarding",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Onboarding flow screen: welcome step with progress indicators and action buttons."
+          },
+          {
+            "id": "6440:18958",
+            "name": "V2_gradient",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Main application dashboard (gradient theme). Layout: sidebar Navigation (256px) + main content area. Top bar: Search Input + mood Badge ('Happy') + XP Badge ('100 XP'). Content: page title 'Myself', 'Add new' Button, Popular Recommendation section (horizontal Card scroll with carousel nav), Tabs ('My knowledge' / 'Shared with me') + Sort Dropdown + Search, Chip filters (All/Fishing/Military/Education/Parenting/Finance), knowledge Card grid with images. Right panel: AI writing prompt Card + Recommended tag Chips list. Components: Navigation sidebar, Input (search), Button, Tabs, Chip, Card, Avatar, Badge/Chip, Separator."
+          },
+          {
+            "id": "6410:195556",
+            "name": "V2_gradient",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Dashboard variant 2 — alternate gradient/content state."
+          },
+          {
+            "id": "6412:5968",
+            "name": "V2_gradient",
+            "type": "FRAME",
+            "size": "1440x1024",
+            "description": "Dashboard variant 3 — alternate gradient/content state."
+          }
+        ]
       }
-    ]
+    }
   },
   "icons": {
-    "description": "Icon library documentation for HeroUI. The Figma Kit references gravity-ui icons via Iconify. Internally, packages/react/src/components/icons.tsx contains built-in SVG icons used by components.",
+    "description": "Icon library documentation for HeroUI. The Figma Kit references gravity-ui icons via Iconify. Internally, packages/react/src/components/icons.tsx contains built-in SVG icons used by components. Updated 2026-03-11: added Emotions category (6441:72852).",
     "figmaPageId": "10:1849",
     "figmaPageName": "Icons",
-    "figmaIconCount": 232,
+    "figmaIconCount": 246,
     "recommendedLibrary": {
       "name": "gravity-ui",
       "provider": "Iconify",
@@ -3162,7 +3188,13 @@
       "Transport, Parts, Service (x6)",
       "Users (x6)",
       "Video, Audio, Sound (x6)",
-      "Weather (x7)"
+      "Weather (x7)",
+      {
+        "id": "6441:72852",
+        "name": "Emotions",
+        "description": "Emotional expression and mood icons (emoji-style): happy, sad, angry, surprised, etc. Added 2026-03-11.",
+        "addedVersion": "2329655686589982933"
+      }
     ],
     "internalIcons": {
       "file": "packages/react/src/components/icons.tsx",
