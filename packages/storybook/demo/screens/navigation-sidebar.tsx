@@ -5,8 +5,8 @@ import {
   BarsUnaligned,
   Bell,
   Bucket,
-  Comments,
   CommentDot,
+  Comments,
   FaceRobot,
   Globe,
   ListUl,
@@ -18,15 +18,32 @@ import {
 import {Avatar, Button, Separator} from "@heroui/react";
 import React from "react";
 
-// Yours Truly wordmark
+// ─── Figma MCP assets ────────────────────────────────────────────────────────
+
+/* YoursTruly logo layers — same assets as other screens */
+const imgGroup = "http://localhost:3845/assets/ef73cd9e3e3cafdf77a83ef2a6eb4f58fd3bc7b4.svg";
+const imgGroup1 = "http://localhost:3845/assets/41e820d59e312313e0141fc6621a9d1de74346c2.svg";
+const imgGroup2 = "http://localhost:3845/assets/6e0b0a4348cc63aaac45c735a3fdc0943cccd88d.svg";
+
+// ─── YoursTruly logo (sidebar-sized: 72×40 px) ───────────────────────────────
+
 function YoursTrulyLogo() {
   return (
-    <div className="flex flex-col leading-tight">
-      <span className="text-sm font-bold tracking-tight text-foreground">YOURS</span>
-      <span className="text-sm italic text-foreground">Truly</span>
+    <div aria-label="YoursTruly" className="relative h-[40px] w-[72px] select-none">
+      <div className="absolute inset-[0_12.08%_69.03%_10.89%]">
+        <img alt="" className="absolute block size-full max-w-none" src={imgGroup} />
+      </div>
+      <div className="absolute inset-[22.55%_-0.21%_15.48%_-1.39%]">
+        <img alt="" className="absolute block size-full max-w-none" src={imgGroup1} />
+      </div>
+      <div className="absolute inset-[32.04%_5.79%_0_4.58%]">
+        <img alt="" className="absolute block size-full max-w-none" src={imgGroup2} />
+      </div>
     </div>
   );
 }
+
+// ─── Nav data ─────────────────────────────────────────────────────────────────
 
 type NavItem = {
   id: string;
@@ -61,11 +78,11 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Shop",
-    items: [
-      {id: "marketplace", label: "Marketplace", icon: <ShoppingCart className="size-4" />},
-    ],
+    items: [{id: "marketplace", label: "Marketplace", icon: <ShoppingCart className="size-4" />}],
   },
 ];
+
+// ─── Navigation Sidebar ───────────────────────────────────────────────────────
 
 export function NavigationSidebar() {
   const [activeId, setActiveId] = React.useState("myself");

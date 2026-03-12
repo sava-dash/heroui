@@ -6,6 +6,7 @@
     "description": "Maps Figma design tokens to HeroUI v3 CSS custom properties and source code",
     "source": "Figma Desktop Bridge — live extraction",
     "lastUpdated": "2026-03-11",
+    "demoThemeUpdated": "2026-03-11",
     "versionNote": "The Figma Kit uses HeroUI v2 naming conventions (content1-4, primary/secondary as brand colors). HeroUI v3 code uses a redesigned token system (surface/overlay/accent with oklch colors). Mappings document conceptual equivalence; actual color values differ between Kit and v3.",
     "figmaCollections": {
       "Primitives": {
@@ -2944,28 +2945,204 @@
       "--cursor-disabled": "not-allowed"
     }
   },
+  "demoTheme": {
+    "description": "YoursTruly demo app design tokens — extracted directly from Figma node 6408:187914 (Screens canvas) via get_variable_defs. These override HeroUI v3 defaults to create the YoursTruly brand identity. Implemented in packages/storybook/styles/globals.css.",
+    "figmaNodeId": "6408:187914",
+    "extractedAt": "2026-03-11",
+    "cssFile": "packages/storybook/styles/globals.css",
+    "colors": {
+      "primary": {
+        "figmaKey": "colors/base/primary",
+        "value": "#52325d",
+        "cssVar": "--accent",
+        "description": "Deep purple — brand primary. Used for buttons, focus rings, nav active states."
+      },
+      "primaryForeground": {
+        "figmaKey": "colors/base/primary-foreground",
+        "value": "#ffffff",
+        "cssVar": "--accent-foreground"
+      },
+      "pageBackground": {
+        "figmaKey": "Page Bg",
+        "value": "#FEFCE8",
+        "cssVar": "--background",
+        "description": "Cream/yellow-50 — the distinctive YoursTruly page background."
+      },
+      "surfaceBackground": {
+        "figmaKey": "colors/layout/background",
+        "value": "#ffffff",
+        "cssVar": "--surface",
+        "description": "White — card and panel backgrounds."
+      },
+      "foreground": {
+        "figmaKey": "colors/layout/foreground",
+        "value": "#11181c",
+        "cssVar": "--foreground"
+      },
+      "divider": {
+        "figmaKey": "colors/layout/divider",
+        "value": "#11111126",
+        "cssVar": "--border",
+        "description": "Semi-transparent dark — borders and separators."
+      },
+      "default": {
+        "figmaKey": "colors/base/default",
+        "value": "#d4d4d8",
+        "cssVar": "--default"
+      },
+      "default100": {
+        "figmaKey": "colors/base/default-100",
+        "value": "#f4f4f5",
+        "cssVar": "--surface-secondary"
+      },
+      "default200": {
+        "figmaKey": "colors/base/default-200",
+        "value": "#e4e4e7",
+        "cssVar": "--surface-tertiary"
+      },
+      "default400": {
+        "figmaKey": "colors/base/default-400",
+        "value": "#a1a1aa",
+        "cssVar": "--muted (dark mode)"
+      },
+      "default500": {
+        "figmaKey": "colors/base/default-500",
+        "value": "#71717a",
+        "cssVar": "--muted",
+        "description": "Muted text — placeholders, secondary labels."
+      },
+      "default600": {
+        "figmaKey": "colors/base/default-600",
+        "value": "#52525b"
+      },
+      "default700": {
+        "figmaKey": "colors/base/default-700",
+        "value": "#3f3f46",
+        "cssVar": "--default-foreground"
+      },
+      "yellow500": {
+        "figmaKey": "colors/common/yellow/500",
+        "value": "#f5a524",
+        "cssVar": "--warning",
+        "description": "Amber — warning states and accent highlights."
+      },
+      "yellow50": {
+        "figmaKey": "colors/common/yellow/50",
+        "value": "#fefce8",
+        "tailwindToken": "--color-cream",
+        "description": "Cream — same as Page Bg."
+      },
+      "purple300": {
+        "figmaKey": "colors/common/purple/300",
+        "value": "#ad8fb9",
+        "cssVar": "--focus (dark mode)",
+        "tailwindToken": "--color-purple-300",
+        "description": "Lighter purple — used for focus rings in dark mode."
+      },
+      "pink": {
+        "figmaKey": "Secondary/Pastel hard/Pink",
+        "value": "#ee688e",
+        "cssVar": "--danger",
+        "tailwindToken": "--color-pink",
+        "description": "Pastel pink — danger/error states."
+      },
+      "secondary50": {
+        "figmaKey": "colors/base/secondary-50",
+        "value": "#f3eff5",
+        "description": "Very light purple tint — secondary surface."
+      }
+    },
+    "shadows": {
+      "card": {
+        "figmaKey": "Card",
+        "figmaValue": "DROP_SHADOW: color=#181B2F0A, offset=(0,4), radius=16, spread=0",
+        "cssVar": "--surface-shadow",
+        "cssValue": "0 4px 16px 0 rgba(24, 27, 47, 0.04)"
+      },
+      "neutralSm": {
+        "figmaKey": "shadow/neutral/sm",
+        "figmaValue": "DROP_SHADOW: color=#0000000D, offset=(0,1), radius=2, spread=0",
+        "cssVar": "--field-shadow",
+        "cssValue": "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
+      }
+    },
+    "layout": {
+      "radiusSmall": {
+        "figmaKey": "layout/radius/rounded-small",
+        "value": "8",
+        "unit": "px",
+        "cssVar": "--radius",
+        "cssValue": "0.75rem",
+        "description": "12px radius used as base. Component-level sizes are derived via calc(var(--radius) * multiplier)."
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "value": "Inter",
+        "cssVar": "--font-sans"
+      },
+      "textTiny": {
+        "figmaKey": "text-tiny",
+        "figmaValue": "Font(Inter, Regular, 12px)",
+        "size": "12px",
+        "tailwindEquiv": "text-xs"
+      },
+      "textSmall": {
+        "figmaKey": "text-small",
+        "figmaValue": "Font(Inter, Regular, 14px)",
+        "size": "14px",
+        "tailwindEquiv": "text-sm"
+      },
+      "textMedium": {
+        "figmaKey": "text-medium",
+        "figmaValue": "Font(Inter, Regular, 16px)",
+        "size": "16px",
+        "tailwindEquiv": "text-base"
+      }
+    },
+    "spacing": {
+      "description": "4px base unit scale. Matches HeroUI v3 default --spacing: 0.25rem.",
+      "unit": {"figmaKey": "units/unit", "value": 4, "px": "4px"},
+      "unit2": {"figmaKey": "units/unit-2", "value": 8, "px": "8px"},
+      "unit3": {"figmaKey": "units/unit-3", "value": 12, "px": "12px"},
+      "unit4": {"figmaKey": "units/unit-4", "value": 16, "px": "16px"},
+      "unit5": {"figmaKey": "units/unit-5", "value": 20, "px": "20px"},
+      "unit6": {"figmaKey": "units/unit-6", "value": 24, "px": "24px"},
+      "unit10": {"figmaKey": "units/unit-10", "value": 40, "px": "40px"},
+      "unit11": {"figmaKey": "units/unit-11", "value": 44, "px": "44px"},
+      "unit16": {"figmaKey": "units/unit-16", "value": 64, "px": "64px"}
+    },
+    "cssOverrides": {
+      "description": "Summary of how YoursTruly theme overrides HeroUI v3 defaults in globals.css.",
+      "overrides": [
+        {
+          "var": "--background",
+          "heroUiDefault": "oklch(0.9702 0 0) (light gray)",
+          "yoursTruly": "#fefce8 (cream)"
+        },
+        {
+          "var": "--accent",
+          "heroUiDefault": "oklch(0.6204 0.195 253.83) (blue)",
+          "yoursTruly": "#52325d (deep purple)"
+        },
+        {"var": "--danger", "heroUiDefault": "#f31260 (red)", "yoursTruly": "#ee688e (pink)"},
+        {"var": "--warning", "heroUiDefault": "#f5a524 (amber)", "yoursTruly": "#f5a524 (same)"},
+        {
+          "var": "--surface-shadow",
+          "heroUiDefault": "multi-layer shadow",
+          "yoursTruly": "0 4px 16px 0 rgba(24,27,47,0.04)"
+        },
+        {"var": "--radius", "heroUiDefault": "0.5rem (8px)", "yoursTruly": "0.75rem (12px)"}
+      ]
+    }
+  },
   "figmaStyles": {
     "description": "Figma named styles extracted via REST API. 204 total (201 returned). Includes shadow effects and typography. No color styles — colors are in Variables/Tokens collection.",
     "totalCount": 204,
     "shadowStyles": {
       "description": "Named shadow/effect styles. Format: shadow/{color}/{size}. Sizes: base, sm, md, lg, xl, 2xl, inner. Colors: primary, secondary, success(green), warning(yellow), danger(red), neutral(zinc).",
-      "colors": [
-        "primary",
-        "secondary",
-        "success",
-        "warning",
-        "danger",
-        "neutral"
-      ],
-      "sizes": [
-        "base",
-        "sm",
-        "md",
-        "lg",
-        "xl",
-        "2xl",
-        "inner"
-      ],
+      "colors": ["primary", "secondary", "success", "warning", "danger", "neutral"],
+      "sizes": ["base", "sm", "md", "lg", "xl", "2xl", "inner"],
       "codeMapping": "packages/styles/themes/shared/theme.css — --shadow-* CSS custom properties"
     },
     "textStyles": {
@@ -3028,10 +3205,7 @@
         "font-extrabold",
         "font-black"
       ],
-      "specialVariants": [
-        "underline",
-        "mono"
-      ],
+      "specialVariants": ["underline", "mono"],
       "codeMapping": "packages/styles/themes/default/variables.css — --font-size-* CSS custom properties"
     }
   },

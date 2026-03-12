@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "storybook dev --host 127.0.0.1 --port 6006 --no-open",
+    "dev:demo": "vite demo/",
     "build": "storybook build",
     "start": "storybook start",
     "lint": "eslint .",

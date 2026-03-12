@@ -3,7 +3,7 @@
   "extends": "@heroui/standard/tsconfig/react.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.stories.*", "**/*.test.*", "dist", ".rollup.cache"]
