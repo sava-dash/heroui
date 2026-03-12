@@ -4,7 +4,7 @@
     "figmaFileName": "[YT] HeroUI Figma Kit",
     "figmaUrl": "https://www.figma.com/design/F9VrW5esdIH3eIPpfBp1Ru/-YT--HeroUI-Figma-Kit",
     "description": "Maps Figma design tokens to HeroUI v3 CSS custom properties and source code",
-    "source": "Figma Desktop Bridge — live extraction",
+    "source": "Figma Desktop Bridge \u2014 live extraction",
     "lastUpdated": "2026-03-11",
     "demoThemeUpdated": "2026-03-11",
     "versionNote": "The Figma Kit uses HeroUI v2 naming conventions (content1-4, primary/secondary as brand colors). HeroUI v3 code uses a redesigned token system (surface/overlay/accent with oklch colors). Mappings document conceptual equivalence; actual color values differ between Kit and v3.",
@@ -15,7 +15,7 @@
           "Mode 1": "245:0"
         },
         "variableCount": 138,
-        "description": "Raw color palette (blue/purple/green/red/yellow/cyan/pink/zinc scales + flat variants) and spacing unit scale. Single mode — not theme-aware."
+        "description": "Raw color palette (blue/purple/green/red/yellow/cyan/pink/zinc scales + flat variants) and spacing unit scale. Single mode \u2014 not theme-aware."
       },
       "Tokens": {
         "id": "VariableCollectionId:481:16201",
@@ -39,15 +39,15 @@
           "Added 'Emotions' icon category to Icons canvas (6441:72852)",
           "Added 'Yours Truly Logo' component to Brand canvas (6410:197243)",
           "Screens canvas restructured into 'Molecules' (6441:61697) and 'basic flow' (6441:76012) sections",
-          "Component count: 20 → 21",
-          "Style count: 204 → 209",
+          "Component count: 20 \u2192 21",
+          "Style count: 204 \u2192 209",
           "New text color reference '#4A3552' on Button canvas (6407:187866)"
         ]
       }
     ]
   },
   "primitives": {
-    "description": "Primitives collection — raw values not affected by theme mode.",
+    "description": "Primitives collection \u2014 raw values not affected by theme mode.",
     "colors": {
       "blue": {
         "50": "#E6F1FE",
@@ -399,7 +399,7 @@
     }
   },
   "tokens": {
-    "description": "Tokens collection — semantic, theme-aware. All color values resolved to hex.",
+    "description": "Tokens collection \u2014 semantic, theme-aware. All color values resolved to hex.",
     "colors": {
       "layout": {
         "description": "Global layout colors.",
@@ -1664,7 +1664,7 @@
     }
   },
   "tokenMappings": {
-    "description": "Figma token (v2 Kit) → HeroUI v3 CSS variable mappings. 'match' field: exact=same value, approx=similar value, conceptual=same concept with different value, N/A=no v3 equivalent.",
+    "description": "Figma token (v2 Kit) \u2192 HeroUI v3 CSS variable mappings. 'match' field: exact=same value, approx=similar value, conceptual=same concept with different value, N/A=no v3 equivalent.",
     "colors": [
       {
         "figmaVariable": "colors/layout/background",
@@ -1673,8 +1673,8 @@
         "figmaDark": "#000000",
         "v3CssVar": "--background",
         "v3TailwindColor": "background",
-        "v3Light": "oklch(0.9702 0 0) ≈ #F7F7F7",
-        "v3Dark": "oklch(12% 0.005 285.823) ≈ #181820",
+        "v3Light": "oklch(0.9702 0 0) \u2248 #F7F7F7",
+        "v3Dark": "oklch(12% 0.005 285.823) \u2248 #181820",
         "match": "conceptual",
         "note": "v3 uses off-white bg in light mode"
       },
@@ -1685,8 +1685,8 @@
         "figmaDark": "#ECEDEE",
         "v3CssVar": "--foreground",
         "v3TailwindColor": "foreground",
-        "v3Light": "var(--eclipse) ≈ #2D2D35",
-        "v3Dark": "var(--snow) ≈ #FAFAFA",
+        "v3Light": "var(--eclipse) \u2248 #2D2D35",
+        "v3Dark": "var(--snow) \u2248 #FAFAFA",
         "match": "conceptual",
         "note": "v3 uses purple-tinted dark for eclipse"
       },
@@ -1730,9 +1730,9 @@
         "v3CssVar": "--surface",
         "v3TailwindColor": "surface",
         "v3Light": "var(--white) = #FFFFFF",
-        "v3Dark": "oklch(0.2103 0.0059 285.89) ≈ #2D2D35",
+        "v3Dark": "oklch(0.2103 0.0059 285.89) \u2248 #2D2D35",
         "match": "conceptual",
-        "note": "NAMING: content1 → surface. Dark values differ (zinc vs purple-tinted)."
+        "note": "NAMING: content1 \u2192 surface. Dark values differ (zinc vs purple-tinted)."
       },
       {
         "figmaVariable": "colors/content/content2",
@@ -1788,8 +1788,8 @@
         "figmaDark": "#3F3F46",
         "v3CssVar": "--default",
         "v3TailwindColor": "default",
-        "v3Light": "oklch(94% 0.001 286.375) ≈ #EFEFEF",
-        "v3Dark": "oklch(27.4% 0.006 286.033) ≈ #3A3A42",
+        "v3Light": "oklch(94% 0.001 286.375) \u2248 #EFEFEF",
+        "v3Dark": "oklch(27.4% 0.006 286.033) \u2248 #3A3A42",
         "match": "conceptual",
         "note": "Figma = zinc/300; v3 is much lighter"
       },
@@ -1808,9 +1808,9 @@
         "figmaDark": "#006FEE",
         "v3CssVar": "--accent",
         "v3TailwindColor": "accent",
-        "v3Value": "oklch(0.6204 0.195 253.83) ≈ #3B82F6",
+        "v3Value": "oklch(0.6204 0.195 253.83) \u2248 #3B82F6",
         "match": "conceptual",
-        "note": "NAMING CHANGE: 'primary' → 'accent'. v3 uses a lighter blue."
+        "note": "NAMING CHANGE: 'primary' \u2192 'accent'. v3 uses a lighter blue."
       },
       {
         "figmaVariable": "colors/base/primary-foreground",
@@ -2142,7 +2142,7 @@
         "figmaPreviewUrl": "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/d561df5a-5d92-4055-8ab0-a114e1da1d3a",
         "cssFile": null,
         "reactDir": null,
-        "note": "Figma design exists — no code implementation yet in HeroUI v3"
+        "note": "Figma design exists \u2014 no code implementation yet in HeroUI v3"
       },
       {
         "figmaPage": "Checkbox",
@@ -2174,7 +2174,7 @@
         "figmaPageId": "2584:48",
         "cssFile": "packages/styles/components/separator.css",
         "reactDir": "packages/react/src/components/separator/",
-        "note": "Figma 'Divider' → code 'separator'"
+        "note": "Figma 'Divider' \u2192 code 'separator'"
       },
       {
         "figmaPage": "Input",
@@ -2205,7 +2205,7 @@
         "figmaPageId": "3606:776",
         "cssFile": "packages/styles/components/number-field.css",
         "reactDir": "packages/react/src/components/number-field/",
-        "note": "Figma 'Number Input' → code 'number-field'"
+        "note": "Figma 'Number Input' \u2192 code 'number-field'"
       },
       {
         "figmaPage": "Progress",
@@ -2565,7 +2565,7 @@
         "cssFile": "packages/styles/src/components/number-field",
         "reactDir": "packages/react/src/components/number-field/",
         "repoOnly": true,
-        "note": "Numeric stepper input — different from Number Input in Figma which is older v2"
+        "note": "Numeric stepper input \u2014 different from Number Input in Figma which is older v2"
       },
       {
         "figmaPage": null,
@@ -2702,6 +2702,34 @@
         "reactDir": "packages/react/src/components/time-field/",
         "repoOnly": true,
         "note": "Time input segments"
+      },
+      {
+        "figmaPage": "CommandBar",
+        "figmaNodeId": "6463:228806",
+        "figmaSection": "New components > CLI components",
+        "reactDir": "packages/react/src/components/command-bar/",
+        "notes": "AI command bar with collapsed/expanded states. Contains PromptChip children when expanded."
+      },
+      {
+        "figmaPage": "MemoryCard",
+        "figmaNodeId": "6462:218791",
+        "figmaSection": "New components > Cards",
+        "reactDir": "packages/react/src/components/memory-card/",
+        "notes": "Memory prompt card with type (memory|photo-story) and hover variants."
+      },
+      {
+        "figmaPage": "PromptChip",
+        "figmaNodeId": "6463:228932",
+        "figmaSection": "New components > CLI components",
+        "reactDir": "packages/react/src/components/prompt-chip/",
+        "notes": "AI prompt suggestion chip used inside CommandBar.Panel."
+      },
+      {
+        "figmaPage": "QuickAction",
+        "figmaNodeId": "6462:219709",
+        "figmaSection": "New components > CLI components",
+        "reactDir": "packages/react/src/components/quick-action/",
+        "notes": "Quick action button with default and active variants. Used in dashboard quick actions row."
       }
     ]
   },
@@ -2946,7 +2974,7 @@
     }
   },
   "demoTheme": {
-    "description": "YoursTruly demo app design tokens — extracted directly from Figma node 6408:187914 (Screens canvas) via get_variable_defs. These override HeroUI v3 defaults to create the YoursTruly brand identity. Implemented in packages/storybook/styles/globals.css.",
+    "description": "YoursTruly demo app design tokens \u2014 extracted directly from Figma node 6408:187914 (Screens canvas) via get_variable_defs. These override HeroUI v3 defaults to create the YoursTruly brand identity. Implemented in packages/storybook/styles/globals.css.",
     "figmaNodeId": "6408:187914",
     "extractedAt": "2026-03-11",
     "cssFile": "packages/storybook/styles/globals.css",
@@ -2955,7 +2983,7 @@
         "figmaKey": "colors/base/primary",
         "value": "#52325d",
         "cssVar": "--accent",
-        "description": "Deep purple — brand primary. Used for buttons, focus rings, nav active states."
+        "description": "Deep purple \u2014 brand primary. Used for buttons, focus rings, nav active states."
       },
       "primaryForeground": {
         "figmaKey": "colors/base/primary-foreground",
@@ -2966,13 +2994,13 @@
         "figmaKey": "Page Bg",
         "value": "#FEFCE8",
         "cssVar": "--background",
-        "description": "Cream/yellow-50 — the distinctive YoursTruly page background."
+        "description": "Cream/yellow-50 \u2014 the distinctive YoursTruly page background."
       },
       "surfaceBackground": {
         "figmaKey": "colors/layout/background",
         "value": "#ffffff",
         "cssVar": "--surface",
-        "description": "White — card and panel backgrounds."
+        "description": "White \u2014 card and panel backgrounds."
       },
       "foreground": {
         "figmaKey": "colors/layout/foreground",
@@ -2983,7 +3011,7 @@
         "figmaKey": "colors/layout/divider",
         "value": "#11111126",
         "cssVar": "--border",
-        "description": "Semi-transparent dark — borders and separators."
+        "description": "Semi-transparent dark \u2014 borders and separators."
       },
       "default": {
         "figmaKey": "colors/base/default",
@@ -3009,7 +3037,7 @@
         "figmaKey": "colors/base/default-500",
         "value": "#71717a",
         "cssVar": "--muted",
-        "description": "Muted text — placeholders, secondary labels."
+        "description": "Muted text \u2014 placeholders, secondary labels."
       },
       "default600": {
         "figmaKey": "colors/base/default-600",
@@ -3024,32 +3052,32 @@
         "figmaKey": "colors/common/yellow/500",
         "value": "#f5a524",
         "cssVar": "--warning",
-        "description": "Amber — warning states and accent highlights."
+        "description": "Amber \u2014 warning states and accent highlights."
       },
       "yellow50": {
         "figmaKey": "colors/common/yellow/50",
         "value": "#fefce8",
         "tailwindToken": "--color-cream",
-        "description": "Cream — same as Page Bg."
+        "description": "Cream \u2014 same as Page Bg."
       },
       "purple300": {
         "figmaKey": "colors/common/purple/300",
         "value": "#ad8fb9",
         "cssVar": "--focus (dark mode)",
         "tailwindToken": "--color-purple-300",
-        "description": "Lighter purple — used for focus rings in dark mode."
+        "description": "Lighter purple \u2014 used for focus rings in dark mode."
       },
       "pink": {
         "figmaKey": "Secondary/Pastel hard/Pink",
         "value": "#ee688e",
         "cssVar": "--danger",
         "tailwindToken": "--color-pink",
-        "description": "Pastel pink — danger/error states."
+        "description": "Pastel pink \u2014 danger/error states."
       },
       "secondary50": {
         "figmaKey": "colors/base/secondary-50",
         "value": "#f3eff5",
-        "description": "Very light purple tint — secondary surface."
+        "description": "Very light purple tint \u2014 secondary surface."
       }
     },
     "shadows": {
@@ -3102,15 +3130,51 @@
     },
     "spacing": {
       "description": "4px base unit scale. Matches HeroUI v3 default --spacing: 0.25rem.",
-      "unit": {"figmaKey": "units/unit", "value": 4, "px": "4px"},
-      "unit2": {"figmaKey": "units/unit-2", "value": 8, "px": "8px"},
-      "unit3": {"figmaKey": "units/unit-3", "value": 12, "px": "12px"},
-      "unit4": {"figmaKey": "units/unit-4", "value": 16, "px": "16px"},
-      "unit5": {"figmaKey": "units/unit-5", "value": 20, "px": "20px"},
-      "unit6": {"figmaKey": "units/unit-6", "value": 24, "px": "24px"},
-      "unit10": {"figmaKey": "units/unit-10", "value": 40, "px": "40px"},
-      "unit11": {"figmaKey": "units/unit-11", "value": 44, "px": "44px"},
-      "unit16": {"figmaKey": "units/unit-16", "value": 64, "px": "64px"}
+      "unit": {
+        "figmaKey": "units/unit",
+        "value": 4,
+        "px": "4px"
+      },
+      "unit2": {
+        "figmaKey": "units/unit-2",
+        "value": 8,
+        "px": "8px"
+      },
+      "unit3": {
+        "figmaKey": "units/unit-3",
+        "value": 12,
+        "px": "12px"
+      },
+      "unit4": {
+        "figmaKey": "units/unit-4",
+        "value": 16,
+        "px": "16px"
+      },
+      "unit5": {
+        "figmaKey": "units/unit-5",
+        "value": 20,
+        "px": "20px"
+      },
+      "unit6": {
+        "figmaKey": "units/unit-6",
+        "value": 24,
+        "px": "24px"
+      },
+      "unit10": {
+        "figmaKey": "units/unit-10",
+        "value": 40,
+        "px": "40px"
+      },
+      "unit11": {
+        "figmaKey": "units/unit-11",
+        "value": 44,
+        "px": "44px"
+      },
+      "unit16": {
+        "figmaKey": "units/unit-16",
+        "value": 64,
+        "px": "64px"
+      }
     },
     "cssOverrides": {
       "description": "Summary of how YoursTruly theme overrides HeroUI v3 defaults in globals.css.",
@@ -3125,25 +3189,37 @@
           "heroUiDefault": "oklch(0.6204 0.195 253.83) (blue)",
           "yoursTruly": "#52325d (deep purple)"
         },
-        {"var": "--danger", "heroUiDefault": "#f31260 (red)", "yoursTruly": "#ee688e (pink)"},
-        {"var": "--warning", "heroUiDefault": "#f5a524 (amber)", "yoursTruly": "#f5a524 (same)"},
+        {
+          "var": "--danger",
+          "heroUiDefault": "#f31260 (red)",
+          "yoursTruly": "#ee688e (pink)"
+        },
+        {
+          "var": "--warning",
+          "heroUiDefault": "#f5a524 (amber)",
+          "yoursTruly": "#f5a524 (same)"
+        },
         {
           "var": "--surface-shadow",
           "heroUiDefault": "multi-layer shadow",
           "yoursTruly": "0 4px 16px 0 rgba(24,27,47,0.04)"
         },
-        {"var": "--radius", "heroUiDefault": "0.5rem (8px)", "yoursTruly": "0.75rem (12px)"}
+        {
+          "var": "--radius",
+          "heroUiDefault": "0.5rem (8px)",
+          "yoursTruly": "0.75rem (12px)"
+        }
       ]
     }
   },
   "figmaStyles": {
-    "description": "Figma named styles extracted via REST API. 204 total (201 returned). Includes shadow effects and typography. No color styles — colors are in Variables/Tokens collection.",
+    "description": "Figma named styles extracted via REST API. 204 total (201 returned). Includes shadow effects and typography. No color styles \u2014 colors are in Variables/Tokens collection.",
     "totalCount": 204,
     "shadowStyles": {
       "description": "Named shadow/effect styles. Format: shadow/{color}/{size}. Sizes: base, sm, md, lg, xl, 2xl, inner. Colors: primary, secondary, success(green), warning(yellow), danger(red), neutral(zinc).",
       "colors": ["primary", "secondary", "success", "warning", "danger", "neutral"],
       "sizes": ["base", "sm", "md", "lg", "xl", "2xl", "inner"],
-      "codeMapping": "packages/styles/themes/shared/theme.css — --shadow-* CSS custom properties"
+      "codeMapping": "packages/styles/themes/shared/theme.css \u2014 --shadow-* CSS custom properties"
     },
     "textStyles": {
       "description": "Named text styles. Format: text-{size}/{leading}/{weight} and special names. Named sizes: text-tiny, text-small, text-medium, text-large.",
@@ -3206,11 +3282,11 @@
         "font-black"
       ],
       "specialVariants": ["underline", "mono"],
-      "codeMapping": "packages/styles/themes/default/variables.css — --font-size-* CSS custom properties"
+      "codeMapping": "packages/styles/themes/default/variables.css \u2014 --font-size-* CSS custom properties"
     }
   },
   "screens": {
-    "description": "Screens canvas (6408:187914) — example application screens and molecules built with HeroUI components. Serves as visual reference for real-world component compositions. Added 2026-03-11, updated 2026-03-11.",
+    "description": "Screens canvas (6408:187914) \u2014 example application screens and molecules built with HeroUI components. Serves as visual reference for real-world component compositions. Added 2026-03-11, updated 2026-03-11.",
     "figmaPageId": "6408:187914",
     "figmaPageName": "Screens",
     "sections": {
@@ -3292,14 +3368,14 @@
             "name": "V2_gradient",
             "type": "FRAME",
             "size": "1440x1024",
-            "description": "Dashboard variant 2 — alternate gradient/content state."
+            "description": "Dashboard variant 2 \u2014 alternate gradient/content state."
           },
           {
             "id": "6412:5968",
             "name": "V2_gradient",
             "type": "FRAME",
             "size": "1440x1024",
-            "description": "Dashboard variant 3 — alternate gradient/content state."
+            "description": "Dashboard variant 3 \u2014 alternate gradient/content state."
           }
         ]
       }
