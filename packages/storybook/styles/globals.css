@@ -4,77 +4,160 @@
 
 /* Important: This source is important to make sure storybook styles are compiled */
 
-/* Custom theme overrides - Just use CSS! */
-:root {
-  /* Your values */
-  /* --radius: 2.5rem; */
-  /* --spacing: 0.1rem; */
-  /* font-size: 20px; */
+/* ============================================================
+   YoursTruly — Design System Theme
+   Source: Figma Kit (node 6408:187914)
+   ============================================================ */
 
-  /* --accent: oklch(0.5671 0.209451 257.9449); */
-  /* Use OS-native cursor for interactive elements (macOS style) */
-  --cursor-interactive: pointer;
-
-  /* theme.css */
-
-  /* variables.css */
+:root,
+.light,
+.default,
+[data-theme="light"],
+[data-theme="default"] {
+  /* ── Typography ────────────────────────────────────────── */
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Overrides light theme field tokens */
-  /* --field-background: var(--color-neutral-200);
-  --field-foreground: var(--foreground);
-  --field-placeholder: var(--color-neutral-500);
-  --field-border: var(--border);
+  /* ── Cursor ─────────────────────────────────────────────── */
+  --cursor-interactive: pointer;
+
+  /* ── Radius ─────────────────────────────────────────────── */
+  --radius: 0.75rem; /* 12px — matches Figma rounded corners */
+
+  /* ── Background & Foreground ─────────────────────────────
+     Figma: Page Bg → #FEFCE8 (yellow/50 cream)
+     Figma: colors/layout/foreground → #11181c               */
+  --background: #fefce8;
+  --foreground: #11181c;
+
+  /* ── Surface (cards, panels) ─────────────────────────────
+     Figma: colors/layout/background → #ffffff               */
+  --surface: #ffffff;
+  --surface-foreground: #11181c;
+  --surface-secondary: #f4f4f5; /* colors/base/default-100   */
+  --surface-secondary-foreground: #11181c;
+  --surface-tertiary: #e4e4e7; /* colors/base/default-200   */
+  --surface-tertiary-foreground: #11181c;
+
+  /* ── Overlay (tooltips, popovers, modals) ────────────────  */
+  --overlay: #ffffff;
+  --overlay-foreground: #11181c;
+
+  /* ── Muted ───────────────────────────────────────────────
+     Figma: colors/base/default-500 → #71717a                */
+  --muted: #71717a;
+
+  /* ── Default (neutral UI) ────────────────────────────────
+     Figma: colors/base/default → #d4d4d8
+     Figma: colors/base/default-700 → #3f3f46                */
+  --default: #d4d4d8;
+  --default-foreground: #3f3f46;
+
+  /* ── Accent / Primary ────────────────────────────────────
+     Figma: colors/base/primary → #52325d (deep purple)
+     Figma: colors/base/primary-foreground → #ffffff          */
+  --accent: #52325d;
+  --accent-foreground: #ffffff;
+
+  /* ── Borders & Separators ────────────────────────────────
+     Figma: colors/layout/divider → #11111126                 */
+  --border: rgb(17 17 17 / 0.15);
+  --separator: rgb(17 17 17 / 0.1);
+
+  /* ── Focus ring ──────────────────────────────────────────  */
+  --focus: #52325d;
+
+  /* ── Status Colors ───────────────────────────────────────
+     Figma: colors/common/yellow/500 → #f5a524 (warning)
+     Figma: Secondary/Pastel hard/Pink → #ee688e (danger/pink) */
+  --warning: #f5a524;
+  --warning-foreground: #11181c;
+  --danger: #ee688e;
+  --danger-foreground: #ffffff;
+
+  /* ── Form Fields ─────────────────────────────────────────  */
+  --field-background: #ffffff;
+  --field-foreground: #11181c;
+  --field-placeholder: #71717a; /* colors/base/default-500   */
+  --field-border: transparent;
   --field-border-width: 0px;
-  --field-radius: calc(var(--radius) * 0.75);
-  --field-shadow: none; */
+  --field-radius: calc(var(--radius) * 1.33); /* ~1rem         */
 
-  /* Way to make components and text bigger on mobile - a11y */
-  /* @media (max-width: 640px) {
-    font-size: 24px;
-  } */
+  /* ── Shadows ─────────────────────────────────────────────
+     Figma: Card → drop-shadow(0 4px 16px 0 rgba(24,27,47,0.04))
+     Figma: shadow/neutral/sm → drop-shadow(0 1px 2px 0 #0000000d)
+     Figma: shadow/neutral/md → dual drop-shadow                  */
+  --surface-shadow: 0 4px 16px 0 rgba(24, 27, 47, 0.04);
+  --overlay-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --field-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-[data-theme="light"],
-.light {
-  /* --background: #f9f9f9; */
-  /* --skeleton-animation: none; */ /* possible values: shimmer, pulse, none */
-}
-
-/* Dark theme overrides using data-theme or class */
+/* ── Dark theme overrides ──────────────────────────────────── */
 [data-theme="dark"],
 .dark {
-  /* Your values */
-  /* --radius: 0.5rem; */
-  /* --cursor: default; */
-
   --cursor-interactive: pointer;
+
+  --background: oklch(12% 0.005 285.823);
+  --foreground: #fafafa;
+
+  --surface: oklch(0.2103 0.0059 285.89);
+  --surface-foreground: #fafafa;
+
+  --overlay: oklch(0.2103 0.0059 285.89);
+  --overlay-foreground: #fafafa;
+
+  --muted: #a1a1aa; /* colors/base/default-400 — lighter for dark  */
+
+  --default: oklch(27.4% 0.006 286.033);
+  --default-foreground: #fafafa;
+
+  /* Keep accent (primary purple) unchanged in dark mode */
+  --accent: #52325d;
+  --accent-foreground: #ffffff;
+
+  --border: oklch(28% 0.006 286.033);
+  --separator: oklch(25% 0.006 286.033);
+  --focus: #ad8fb9; /* colors/common/purple/300 — softer in dark    */
+
+  --field-background: oklch(0.2103 0.0059 285.89);
+  --field-foreground: #fafafa;
+  --field-placeholder: #71717a;
+
+  --surface-shadow: 0 0 0 0 transparent inset;
+  --overlay-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  --field-shadow: 0 0 0 0 transparent inset;
 }
 
-/* @theme inline { */
-/* Radius */
-/* --radius-xs: calc(var(--radius) * 0.25);
-  --radius-sm: calc(var(--radius) * 0.5);
-  --radius-md: calc(var(--radius) * 0.75);
-  --radius-lg: calc(var(--radius) * 1);
-  --radius-xl: calc(var(--radius) * 1.5);
-  --radius-2xl: calc(var(--radius) * 2);
-  --radius-3xl: calc(var(--radius) * 3);
-  --radius-4xl: calc(var(--radius) * 4);
-} */
-
-/* @utility button {
-  @apply rounded-lg;
-} */
-
 @theme inline {
-  /* --color-field-focus: var(--color-neutral-300); */
+  /* Expose purple palette for utility usage */
+  --color-primary: #52325d;
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: #52325d33; /* colors/flat/primary-flat */
+  --color-purple-300: #ad8fb9; /* colors/common/purple/300 */
+  --color-cream: #fefce8; /* colors/common/yellow/50  */
+  --color-pink: #ee688e; /* Secondary/Pastel hard/Pink */
+
+  /* Script / handwriting font — used for decorative headings */
+  --font-script: "Dancing Script", cursive;
+}
+
+/* ── Page background gradient ─────────────────────────────────────────────
+   Lavender (top) → cream (bottom) — matches new Figma design (node 6447:206723)
+   Two-layer gradient: colour overlay on top of solid cream base             */
+@utility bg-page {
+  background-color: #fefce8;
+  background-image:
+    linear-gradient(0deg, rgba(254, 252, 232, 0.6) 23.558%, rgba(173, 143, 185, 0.6) 100%),
+    linear-gradient(90deg, rgb(254, 252, 232) 0%, rgb(254, 252, 232) 100%);
 }
 
 body {
   background-color: var(--background);
+  font-family: var(--font-sans);
 }

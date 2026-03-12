@@ -1,0 +1,541 @@
+"use client";
+
+import React from "react";
+
+// ─── Figma MCP Assets (node 6447:207422) ─────────────────────────────────────
+
+// Logo (3-layer composition, same as other screens)
+const imgLogoG1 = "http://localhost:3845/assets/ced9389b911e644b10405db0ecad364067d366a9.svg";
+const imgLogoG2 = "http://localhost:3845/assets/57b2163b68fc0a18040a4c435e52440cca62197e.svg";
+const imgLogoG3 = "http://localhost:3845/assets/6972b4e060c8846dbc61d31fe2bee2c1773fccad.svg";
+
+// Top nav icons (16×16)
+const imgNavHome = "http://localhost:3845/assets/d4ce978fd5ccd34f161c3ae4f5e4d8b545b6ae8a.svg";
+const imgNavMyself = "http://localhost:3845/assets/7e3a5b4532d982eb64c5499b44d948c97fe6b887.svg";
+const imgNavLifetime = "http://localhost:3845/assets/e9e961f36e0c8eee736d93c48c178d2e5d758e62.svg";
+const imgNavBucketList =
+  "http://localhost:3845/assets/abcdee3d6ddf0ac7801afa4de54a6ebc8586c043.svg";
+const imgNavUpgradeArrow =
+  "http://localhost:3845/assets/b6b619254f531ffcb9938105b04debc8d7d08956.svg";
+
+// Content
+const imgPortrait = "http://localhost:3845/assets/c10a50e47f38075dfbf4a32e609a270b7bea016c.png";
+const imgJuniorGarcia = "http://localhost:3845/assets/6f23eab72541f5d36f4a4c2e593cd57d43a38757.png";
+const imgSparkle = "http://localhost:3845/assets/6b86fc14d82734e84edb2204e8ae8ee3cf1df703.svg";
+
+// Quick action icons
+const imgIconShuffle = "http://localhost:3845/assets/46453512ca94a32fcfd3d7734c8d3a104c7a57d8.svg";
+
+// AI bar
+const imgSendBtn = "http://localhost:3845/assets/73b13c86027b65b71966c966bb1690c84c94fb2a.svg";
+
+// ─── Logo component ───────────────────────────────────────────────────────────
+
+function YoursTrulyLogo() {
+  return (
+    <div aria-label="YoursTruly" className="relative h-8 w-[58px] shrink-0 select-none">
+      <div className="absolute" style={{inset: "0 12.08% 69.03% 10.89%"}}>
+        <img alt="" className="absolute block size-full max-w-none" src={imgLogoG1} />
+      </div>
+      <div className="absolute" style={{inset: "22.55% -0.21% 15.48% -1.39%"}}>
+        <img alt="" className="absolute block size-full max-w-none" src={imgLogoG2} />
+      </div>
+      <div className="absolute" style={{inset: "32.04% 5.79% 0 4.58%"}}>
+        <img alt="" className="absolute block size-full max-w-none" src={imgLogoG3} />
+      </div>
+    </div>
+  );
+}
+
+// ─── Memory prompt card ───────────────────────────────────────────────────────
+
+type MemoryCardProps = {
+  text: string;
+  showArrow?: boolean;
+  isPhotoStory?: boolean;
+};
+
+function MemoryCard({isPhotoStory = false, showArrow = false, text}: MemoryCardProps) {
+  return (
+    <div
+      className="relative flex h-full flex-col overflow-hidden rounded-2xl p-1"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.16) 100%)",
+      }}
+    >
+      <div className="flex flex-1 flex-col gap-4 p-3">
+        {/* Header: chip + XP */}
+        <div className="flex items-center justify-between">
+          <span
+            className="flex h-7 items-center rounded-full px-2 text-sm"
+            style={
+              isPhotoStory
+                ? {background: "rgba(0,111,238,0.2)", color: "#006fee"}
+                : {background: "rgba(82,50,93,0.2)", color: "#52325d"}
+            }
+          >
+            {isPhotoStory ? "Photo Story" : "Memory"}
+          </span>
+          <div className="flex items-center gap-0.5 text-sm font-medium text-[#27272a]">
+            <img alt="" className="size-5" src={imgSparkle} />
+            <span>{isPhotoStory ? "100 XP" : "+20"}</span>
+          </div>
+        </div>
+
+        {/* Portrait image (Photo Story only) */}
+        {!!isPhotoStory && (
+          <div
+            className="relative w-full overflow-hidden rounded-lg"
+            style={{aspectRatio: "295/165"}}
+          >
+            <img
+              alt="Story cover"
+              className="absolute inset-0 size-full max-w-none object-cover"
+              src={imgPortrait}
+            />
+          </div>
+        )}
+
+        {/* Text */}
+        <div className="text-sm font-medium text-[#27272a]">{text}</div>
+      </div>
+
+      {/* Arrow button (card 3 hover state) */}
+      {!!showArrow && (
+        <div className="absolute right-3 bottom-3 flex size-8 items-center justify-center rounded-full bg-[#52325d] shadow-lg">
+          <svg
+            className="size-4 text-white"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2.5}
+            viewBox="0 0 24 24"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Quick action button ──────────────────────────────────────────────────────
+
+type QuickActionProps = {
+  label: string;
+  iconSrc?: string;
+  icon?: React.ReactNode;
+};
+
+function QuickAction({icon, iconSrc, label}: QuickActionProps) {
+  return (
+    <button
+      className="flex w-[120px] flex-col items-center justify-center gap-1 rounded-lg border border-[rgba(74,53,82,0.2)] bg-[rgba(212,212,216,0.4)] px-1.5 py-2.5 transition-all hover:bg-white/60"
+      style={{minHeight: 64}}
+    >
+      <div className="flex size-5 items-center justify-center">
+        {iconSrc ? <img alt={label} className="size-full" src={iconSrc} /> : icon}
+      </div>
+      <span className="text-center text-sm text-[#3f3f46]">{label}</span>
+    </button>
+  );
+}
+
+// ─── Quick action inline icons ────────────────────────────────────────────────
+
+const IconAddPhotos = () => (
+  <svg
+    className="size-full text-[#3f3f46]"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.8}
+    viewBox="0 0 24 24"
+  >
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+    <circle cx="12" cy="13" r="4" />
+  </svg>
+);
+const IconPostScript = () => (
+  <svg
+    className="size-full text-[#3f3f46]"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.8}
+    viewBox="0 0 24 24"
+  >
+    <rect height="18" rx="2" width="18" x="3" y="3" />
+    <line x1="3" x2="21" y1="9" y2="9" />
+    <line x1="9" x2="9" y1="21" y2="9" />
+  </svg>
+);
+const IconAddContact = () => (
+  <svg
+    className="size-full text-[#3f3f46]"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.8}
+    viewBox="0 0 24 24"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <line x1="19" x2="19" y1="8" y2="14" />
+    <line x1="22" x2="16" y1="11" y2="11" />
+  </svg>
+);
+const IconQuickMemory = () => (
+  <svg
+    className="size-full text-[#3f3f46]"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={1.8}
+    viewBox="0 0 24 24"
+  >
+    <circle cx="12" cy="12" r="10" />
+    <polyline points="12 6 12 12 16 14" />
+  </svg>
+);
+
+// ─── Main dashboard screen ────────────────────────────────────────────────────
+
+export function DashboardScreen() {
+  return (
+    /* Outer container: lavender-tinted white, rounded, fills h-screen */
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-[#f3eff5]">
+      {/* ══ TOP NAVIGATION ══════════════════════════════════════════════════ */}
+      <nav className="flex shrink-0 items-center gap-5 px-6 py-4">
+        <YoursTrulyLogo />
+
+        {/* Nav tabs */}
+        <div className="flex flex-1 items-center gap-1">
+          {/* Home (inactive) */}
+          <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
+            <img alt="" className="size-4 shrink-0 opacity-60" src={imgNavHome} />
+            <span className="text-base text-[#71717a]">Home</span>
+          </div>
+          {/* Myself (active) */}
+          <div className="flex cursor-pointer items-center gap-2 rounded-xl bg-white px-3 py-1 shadow-sm">
+            <img alt="" className="size-4 shrink-0" src={imgNavMyself} />
+            <span className="text-base text-[#0f0f14]">Myself</span>
+          </div>
+          {/* Lifetime */}
+          <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
+            <img alt="" className="size-4 shrink-0 opacity-60" src={imgNavLifetime} />
+            <span className="text-base text-[#71717a]">Lifetime</span>
+          </div>
+          {/* Bucket List */}
+          <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
+            <img alt="" className="size-4 shrink-0 opacity-60" src={imgNavBucketList} />
+            <span className="text-base text-[#71717a]">Bucket List</span>
+          </div>
+        </div>
+
+        {/* Upgrade button */}
+        <button className="flex h-8 cursor-pointer items-center gap-2 rounded-xl bg-[rgba(82,50,93,0.2)] px-3 transition-all hover:bg-[rgba(82,50,93,0.3)]">
+          <span className="text-xs font-medium text-[#52325d]">Upgrade</span>
+          <img alt="" className="size-5 shrink-0" src={imgNavUpgradeArrow} />
+        </button>
+
+        {/* User info */}
+        <div className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-[rgba(17,17,17,0.15)] pr-3 transition-all hover:bg-white/50">
+          <div className="size-8 shrink-0 overflow-hidden rounded-lg bg-[#d4d4d8]">
+            <img alt="Junior Garcia" className="size-full object-cover" src={imgJuniorGarcia} />
+          </div>
+          <span className="text-sm text-[#11181c]">Junior Garcia</span>
+        </div>
+      </nav>
+
+      {/* ══ MAIN CONTENT (gradient background) ══════════════════════════════ */}
+      <div
+        className="flex min-h-0 flex-1 gap-6 overflow-hidden rounded-3xl p-6"
+        style={{
+          backgroundImage:
+            "linear-gradient(0deg, rgba(254,252,232,0.6) 23.558%, rgba(173,143,185,0.6) 100%), linear-gradient(90deg, rgb(254,252,232) 0%, rgb(254,252,232) 100%)",
+        }}
+      >
+        {/* ── Left sidebar ────────────────────────────────────────────────── */}
+        <aside className="flex h-full w-[280px] shrink-0 flex-col gap-4">
+          {/* Greeting card */}
+          <div
+            className="flex shrink-0 flex-col gap-5 rounded-2xl p-6"
+            style={{background: "rgba(255,255,255,0.40)", backdropFilter: "blur(12px)"}}
+          >
+            {/* "Hey Junior Garcia!" */}
+            <h2 className="text-xl leading-7">
+              <span className="font-normal text-[#0f0f14]">Hey </span>
+              <span className="font-semibold text-[#52325d]">Junior Garcia!</span>
+            </h2>
+
+            {/* Stats grid (4 cells with 1px gap) */}
+            <div className="flex items-stretch gap-px">
+              {[
+                {value: "1", label: "Memories"},
+                {value: "0", label: "People"},
+                {value: "0", label: "Messages"},
+              ].map(({label, value}) => (
+                <div
+                  key={label}
+                  className="flex flex-1 flex-col items-center rounded-lg bg-white p-2"
+                >
+                  <span className="text-xl leading-7 font-medium text-[#27272a]">{value}</span>
+                  <span className="text-center text-xs leading-4 text-[#52525b]">{label}</span>
+                </div>
+              ))}
+              {/* XP cell with sparkle icon */}
+              <div className="flex flex-1 flex-col items-center rounded-lg bg-white p-2">
+                <span className="text-xl leading-7 font-medium text-[#27272a]">0</span>
+                <div className="flex items-center gap-0.5">
+                  <img alt="" className="size-3" src={imgSparkle} />
+                  <span className="text-xs leading-4 text-[#52525b]">XP</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Storage bar */}
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-[#71717a]">Storage</span>
+                <span className="text-xs text-[#71717a]">0 / 10 GB</span>
+              </div>
+              <div className="h-1.5 overflow-hidden rounded-full bg-[#e4e4e7]">
+                <div className="h-full w-[28%] rounded-full bg-[#52325d]" />
+              </div>
+            </div>
+          </div>
+
+          {/* Recent Activity card */}
+          <div
+            className="flex flex-1 flex-col gap-5 rounded-2xl p-6"
+            style={{background: "rgba(255,255,255,0.40)", backdropFilter: "blur(12px)"}}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-semibold text-[#0f0f14]">Recent Activity</h3>
+              <div className="flex items-center gap-2">
+                {/* Gallery icon */}
+                <button className="flex size-7 items-center justify-center rounded-lg text-[#71717a] transition-colors hover:bg-black/5 hover:text-[#0f0f14]">
+                  <svg
+                    className="size-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    viewBox="0 0 24 24"
+                  >
+                    <rect height="18" rx="2" width="18" x="3" y="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                </button>
+                {/* Refresh icon */}
+                <button className="flex size-7 items-center justify-center rounded-lg text-[#71717a] transition-colors hover:bg-black/5 hover:text-[#0f0f14]">
+                  <svg
+                    className="size-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    viewBox="0 0 24 24"
+                  >
+                    <polyline points="23 4 23 10 17 10" />
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Activity items */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3 rounded-xl bg-[rgba(82,50,93,0.06)] p-3">
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#71717a]">
+                  <svg
+                    className="size-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                    <circle cx="12" cy="13" r="4" />
+                  </svg>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium text-[#27272a]">You uploaded a photo</p>
+                  <p className="text-xs text-[#71717a]">Less than a minute ago</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-xl bg-[rgba(82,50,93,0.06)] p-3">
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#71717a]">
+                  <svg
+                    className="size-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" x2="8" y1="13" y2="13" />
+                    <line x1="16" x2="8" y1="17" y2="17" />
+                  </svg>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium text-[#27272a]">You created a new memory</p>
+                  <p className="text-xs text-[#71717a]">Less than a minute ago</p>
+                </div>
+              </div>
+            </div>
+
+            {/* See all */}
+            <button className="flex items-center gap-2 self-start text-sm text-[#52525b] transition-colors hover:text-[#52325d]">
+              <span>See all</span>
+              <div className="flex size-5 items-center justify-center rounded-full border border-[rgba(0,0,0,0.15)]">
+                <svg
+                  className="size-3"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </aside>
+
+        {/* ── Right content area ───────────────────────────────────────────── */}
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4 overflow-hidden">
+          {/* Memory prompts + Photo Story grid — fills available height */}
+          <div
+            className="grid min-h-0 flex-1 gap-3"
+            style={{
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gridTemplateRows: "1fr 1fr",
+            }}
+          >
+            {/* Row 1, Col 1 – Memory 1 */}
+            <div className="min-h-0" style={{gridColumn: 1, gridRow: 1}}>
+              <MemoryCard text="Describe the first home you remember living in" />
+            </div>
+            {/* Row 1, Col 2 – Memory 2 */}
+            <div className="min-h-0" style={{gridColumn: 2, gridRow: 1}}>
+              <MemoryCard text="How did you meet your partner/spouse?" />
+            </div>
+            {/* Col 3 – Photo Story (spans 2 rows) */}
+            <div className="min-h-0" style={{gridColumn: 3, gridRow: "1 / span 2"}}>
+              <MemoryCard isPhotoStory text="Describe the first home you remember living in" />
+            </div>
+            {/* Row 2, Col 1 – Memory 3 (with arrow) */}
+            <div className="min-h-0" style={{gridColumn: 1, gridRow: 2}}>
+              <MemoryCard showArrow text="Which home holds the most memories for you?" />
+            </div>
+            {/* Row 2, Col 2 – Memory 4 */}
+            <div className="min-h-0" style={{gridColumn: 2, gridRow: 2}}>
+              <MemoryCard text="How did your passion for Reading begin?" />
+            </div>
+          </div>
+
+          {/* Quick actions row */}
+          <div className="flex shrink-0 items-center justify-center gap-2 py-1">
+            <QuickAction iconSrc={imgIconShuffle} label="Shuffle" />
+            <QuickAction icon={<IconAddPhotos />} label="Add Photos" />
+            <QuickAction icon={<IconPostScript />} label="PostScript" />
+            <QuickAction icon={<IconAddContact />} label="Add Contact" />
+            <QuickAction icon={<IconQuickMemory />} label="Quick Memory" />
+          </div>
+        </div>
+      </div>
+
+      {/* ══ BOTTOM AI BAR ════════════════════════════════════════════════════ */}
+      <div className="flex shrink-0 flex-col items-center gap-2 px-6 py-4">
+        <div
+          className="flex w-full max-w-[776px] items-center gap-3 rounded-[20px] border border-[rgba(17,17,17,0.15)] bg-white px-[17px] py-[13px]"
+          style={{boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.10), 0px 2px 4px 0px rgba(0,0,0,0.10)"}}
+        >
+          {/* ⌘ button */}
+          <button className="flex size-8 shrink-0 items-center justify-center rounded-xl border-2 border-[#d4d4d8] text-[#52525b] transition-all hover:border-[#52325d]/40 hover:text-[#52325d]">
+            <svg
+              className="size-5"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.8}
+              viewBox="0 0 24 24"
+            >
+              <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+            </svg>
+          </button>
+
+          {/* Search input area */}
+          <div className="flex min-w-0 flex-1 items-center gap-2">
+            <svg
+              className="size-5 shrink-0 text-[#52525b]/50"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.8}
+              viewBox="0 0 24 24"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" x2="16.65" y1="21" y2="16.65" />
+            </svg>
+            <span className="text-sm text-[#52525b]/50">Ask me anything... (⌘K)</span>
+          </div>
+
+          {/* Voice button */}
+          <button className="flex h-8 shrink-0 items-center gap-2 rounded-xl border-2 border-[#d4d4d8] px-3 text-xs font-medium text-[#0f0f14] transition-all hover:border-[#52325d]/30">
+            <svg
+              className="size-5 text-[#52525b]"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.8}
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" x2="12" y1="19" y2="23" />
+              <line x1="8" x2="16" y1="23" y2="23" />
+            </svg>
+            Voice
+          </button>
+
+          {/* Send button (purple→yellow gradient, semi-transparent = inactive) */}
+          <button
+            className="flex size-8 shrink-0 items-center justify-center rounded-xl opacity-50 transition-opacity hover:opacity-70"
+            style={{
+              background: "linear-gradient(to right, #52325d, #f9c97c)",
+            }}
+          >
+            <img alt="Send" className="size-5" src={imgSendBtn} />
+          </button>
+        </div>
+
+        <p className="text-center text-xs text-[#52525b]">
+          Press ⌘K to open · Ask questions, navigate, or create content
+        </p>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "storybook",
+      "runtimeExecutable": "packages/storybook/node_modules/.bin/storybook",
+      "runtimeArgs": [
+        "dev",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "6006",
+        "--no-open",
+        "--config-dir",
+        "packages/storybook/.storybook"
+      ],
+      "port": 6006
+    },
+    {
+      "name": "docs",
+      "runtimeExecutable": "/usr/local/lib/node_modules/corepack/shims/pnpm",
+      "runtimeArgs": ["--filter=@heroui/docs", "run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "demo",
+      "runtimeExecutable": "/usr/local/lib/node_modules/corepack/shims/pnpm",
+      "runtimeArgs": ["--filter=@heroui/storybook", "run", "dev:demo"],
+      "port": 5173
+    }
+  ]
+}
