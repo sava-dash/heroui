@@ -13,8 +13,8 @@ const imgLogoVector1 = "http://localhost:3845/assets/4b937c769d974367a52057062f3
 const imgGoogle = "http://localhost:3845/assets/c02760ad33978ce5bed2da9bf9d73acad802182a.png";
 const imgFacebook = "http://localhost:3845/assets/47a40744916bfdd8b1f5ffa3a71c03ad90bee25c.png";
 
-/* Background watermark vector (YOURS Truly) */
-const imgBgVector = "http://localhost:3845/assets/b54989e0f4e3e69b6236d253f1ee3d188dc671b2.svg";
+/* Background watermark vector (YOURS Truly) — node 6447:207276 */
+const imgBgVector = "http://localhost:3845/assets/ddad931a7ff8a76aea0893ed1035827dd76a3ef8.svg";
 
 /* Or-divider SVG line */
 const imgDividerLine = "http://localhost:3845/assets/7ea4c00a9b8f73be76aafcc7c963d32e08a5121b.svg";
@@ -89,13 +89,12 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
     <div className="flex h-screen min-h-[600px] w-full overflow-hidden bg-gradient-to-br from-[#ad8fb9] to-[#fefce8]">
       {/* ── Left: vector watermark + brand copy ────────────────────────── */}
       <div className="relative hidden flex-1 overflow-hidden md:block">
-        {/* YOURS/Truly watermark vector (node 6447:207276) */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 select-none">
-          <img
-            alt=""
-            className="absolute block size-full max-w-none object-cover"
-            src={imgBgVector}
-          />
+        {/* YOURS/Truly watermark vector (node 6447:207276) — mix-blend-overlay, natural fill */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 mix-blend-overlay select-none"
+        >
+          <img alt="" className="absolute block size-full max-w-none" src={imgBgVector} />
         </div>
 
         {/* Bottom brand copy + social proof */}
