@@ -19,8 +19,14 @@ const imgBgVector = "http://localhost:3845/assets/b54989e0f4e3e69b6236d253f1ee3d
 /* Or-divider SVG line */
 const imgDividerLine = "http://localhost:3845/assets/7ea4c00a9b8f73be76aafcc7c963d32e08a5121b.svg";
 
-/* Social-proof avatar photo */
+/* Social-proof avatars — 1 photo + 4 SVG silhouettes (Figma AvatarGroup) */
 const imgAvatarPhoto = "http://localhost:3845/assets/6f23eab72541f5d36f4a4c2e593cd57d43a38757.png";
+const imgAvatar0 = "http://localhost:3845/assets/095bc2e03ae9d702f43979f556ba177f06f36acc.svg";
+const imgAvatar1 = "http://localhost:3845/assets/047a2cc5c6c0ff74ebedb51a91f426c7a2211fa7.svg";
+const imgAvatar2 = "http://localhost:3845/assets/4a46fc2bbdad419120ea80a8569097deda9779f2.svg";
+const imgAvatar3 = "http://localhost:3845/assets/f895ec61f5c181536afa36d60e9db1f745dc8a10.svg";
+
+const avatarSrcs = [imgAvatarPhoto, imgAvatar0, imgAvatar1, imgAvatar2, imgAvatar3];
 
 // ─── YoursTruly logo (2-layer Figma composition) ─────────────────────────────
 
@@ -29,11 +35,19 @@ function YoursTrulyLogo() {
     <div className="relative h-[40px] w-[72px]">
       {/* "YOURS" part */}
       <div className="absolute inset-[0_12.08%_69.03%_10.89%]">
-        <img alt="" className="absolute block size-full max-w-none" src={imgLogoVector} />
+        <img
+          alt=""
+          className="absolute block size-full max-w-none object-contain object-left-top"
+          src={imgLogoVector}
+        />
       </div>
       {/* "Truly" script part */}
       <div className="absolute inset-[32.04%_5.79%_0_4.58%]">
-        <img alt="" className="absolute block size-full max-w-none" src={imgLogoVector1} />
+        <img
+          alt=""
+          className="absolute block size-full max-w-none object-contain object-left-bottom"
+          src={imgLogoVector1}
+        />
       </div>
     </div>
   );
@@ -89,7 +103,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
             <p className="text-[36px] leading-[40px] font-normal text-[#27272a]">Life Is Short</p>
             <p
               className="text-[80px] leading-[56px] text-[#52325d]"
-              style={{fontFamily: "var(--font-script)"}}
+              style={{fontFamily: "'Dream Fever - Demo', serif"}}
             >
               Make It Sweet
             </p>
@@ -114,7 +128,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
                       <img
                         alt=""
                         className="absolute inset-0 size-full max-w-none object-cover"
-                        src={imgAvatarPhoto}
+                        src={avatarSrcs[i]}
                       />
                     </div>
                   </div>
