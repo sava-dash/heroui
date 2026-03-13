@@ -14,13 +14,11 @@ const imgGroup2 = "http://localhost:3845/assets/6e0b0a4348cc63aaac45c735a3fdc094
 const imgGoogle = "http://localhost:3845/assets/c02760ad33978ce5bed2da9bf9d73acad802182a.png";
 const imgFacebook = "http://localhost:3845/assets/47a40744916bfdd8b1f5ffa3a71c03ad90bee25c.png";
 
-/* Social-proof avatar SVGs */
-const imgAvatar = "http://localhost:3845/assets/095bc2e03ae9d702f43979f556ba177f06f36acc.svg";
-const imgAvatar1 = "http://localhost:3845/assets/047a2cc5c6c0ff74ebedb51a91f426c7a2211fa7.svg";
-const imgAvatar2 = "http://localhost:3845/assets/4a46fc2bbdad419120ea80a8569097deda9779f2.svg";
-const imgAvatar3 = "http://localhost:3845/assets/f895ec61f5c181536afa36d60e9db1f745dc8a10.svg";
+/* Background vector logo (node 6447:207276) */
+const imgBgVector = "http://localhost:3845/assets/f49d84903ba65f28294eb48c8311efaa31942c36.svg";
 
-const socialAvatars = [imgAvatar, imgAvatar1, imgAvatar2, imgAvatar3];
+/* Social-proof avatar photo (node 2551:37356) */
+const imgAvatarPhoto = "http://localhost:3845/assets/6f23eab72541f5d36f4a4c2e593cd57d43a38757.png";
 
 // ─── YoursTruly logo (uses Figma SVG layers) ─────────────────────────────────
 
@@ -51,29 +49,16 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
   const [accepted, setAccepted] = React.useState(false);
 
   return (
-    <div className="flex h-screen min-h-[600px] w-full overflow-hidden">
-      {/* ── Left: watermark + brand copy ───────────────────────────────── */}
+    <div className="flex h-screen min-h-[600px] w-full overflow-hidden bg-gradient-to-br from-[#ad8fb9] to-[#fefce8]">
+      {/* ── Left: vector watermark + brand copy ────────────────────────── */}
       <div className="relative hidden flex-1 overflow-hidden md:block">
-        {/* Giant YOURS / Truly watermark */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 flex flex-col items-start justify-start overflow-hidden pt-10 pl-10 select-none"
-        >
-          <span
-            className="leading-none font-black text-[#52325d]/[0.18]"
-            style={{fontSize: "clamp(100px, 16vw, 220px)"}}
-          >
-            YOURS
-          </span>
-          <span
-            className="leading-none text-[#52325d]/[0.18]"
-            style={{
-              fontSize: "clamp(80px, 13vw, 180px)",
-              fontFamily: "var(--font-script)",
-            }}
-          >
-            Truly
-          </span>
+        {/* Figma vector logo watermark (node 6447:207276) */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 select-none">
+          <img
+            alt=""
+            className="absolute block size-full max-w-none object-cover"
+            src={imgBgVector}
+          />
         </div>
 
         {/* Bottom brand copy + social proof */}
@@ -86,20 +71,33 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
             Join YoursTruly, where your story lives on
           </p>
 
-          {/* Social proof */}
+          {/* Social proof — AvatarGroup sm+primary (node 2551:37356) */}
           <div className="mt-3 flex items-center gap-3">
-            <div className="flex -space-x-2">
-              {socialAvatars.map((src, i) => (
-                <div key={i} className="size-8 overflow-hidden rounded-full ring-2 ring-white/70">
-                  <img
-                    alt={`Community member ${i + 1}`}
-                    className="h-full w-full object-cover"
-                    src={src}
-                  />
+            <div className="flex pr-2">
+              {/* 4 photo avatars with double ring: border-4 purple + border-2 white */}
+              {[0, 1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="relative -mr-2 flex size-8 shrink-0 items-center justify-center rounded-full bg-[#52325d]"
+                >
+                  <div className="absolute inset-0 rounded-full border-4 border-[#52325d]">
+                    <div className="relative size-full overflow-hidden rounded-full border-2 border-white">
+                      <img
+                        alt=""
+                        className="absolute inset-0 size-full max-w-none object-cover"
+                        src={imgAvatarPhoto}
+                      />
+                    </div>
+                  </div>
                 </div>
               ))}
-              <div className="flex size-8 items-center justify-center rounded-full bg-[#52325d] text-[10px] font-bold text-white ring-2 ring-white/70">
-                +4
+              {/* +4 counter */}
+              <div className="relative -mr-2 flex size-8 shrink-0 items-center justify-center rounded-full bg-[#52325d]">
+                <div className="absolute inset-0 rounded-full border-4 border-[#52325d]">
+                  <div className="relative flex size-full items-center justify-center rounded-full border-2 border-white bg-[#52325d]">
+                    <span className="text-[12px] leading-none font-normal text-white">+4</span>
+                  </div>
+                </div>
               </div>
             </div>
             <span className="text-sm text-foreground/60">Join 70,000+ users</span>
@@ -168,7 +166,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
                       <Input
                         fullWidth
                         className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                       />
                     </TextField>
 
@@ -178,7 +176,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
                       <Input
                         fullWidth
                         className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                       />
                     </TextField>
 
@@ -188,7 +186,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
                       <Input
                         fullWidth
                         className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                       />
                       <Description className="text-[#a1a1aa]">8 charachters minimum</Description>
                     </TextField>
