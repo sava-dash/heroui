@@ -15,12 +15,12 @@ const socialAvatars = [imgAvatar, imgAvatar1, imgAvatar2, imgAvatar3];
 // Corner decoration images
 const cornerImages = [
   {
-    src: "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/demo1.jpg",
     className: "absolute -top-4 -right-4 w-40 h-28 rounded-2xl rotate-6",
+    src: "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/demo1.jpg",
   },
   {
-    src: "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/demo2.jpg",
     className: "absolute top-10 right-24 w-28 h-20 rounded-2xl -rotate-3",
+    src: "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/docs/demo2.jpg",
   },
 ];
 
@@ -90,23 +90,25 @@ export function LoadingScreen({onComplete}: LoadingScreenProps) {
         </div>
 
         {/* Centre: headline + progress */}
-        <div className="absolute inset-0 flex flex-col items-start justify-center gap-6 px-16">
+        <div className="absolute inset-0 flex flex-col items-start justify-center gap-6 px-8 md:px-16">
           <div className="space-y-2">
-            <p className="text-7xl leading-none font-extrabold text-white">Life Is Short</p>
+            <p className="text-4xl leading-none font-extrabold text-white sm:text-5xl md:text-7xl">
+              Life Is Short
+            </p>
             <p
-              className="text-7xl leading-none text-white/85"
+              className="text-4xl leading-none text-white/85 sm:text-5xl md:text-7xl"
               style={{fontFamily: "var(--font-script)"}}
             >
               Make It Sweet
             </p>
           </div>
 
-          <p className="max-w-md text-lg text-white/70">
+          <p className="max-w-md text-base text-white/70 md:text-lg">
             Join YoursTruly, where your story lives on
           </p>
 
           {/* Progress bar */}
-          <div className="mt-2 h-1.5 w-72 overflow-hidden rounded-full bg-white/20">
+          <div className="mt-2 h-1.5 w-full max-w-[288px] overflow-hidden rounded-full bg-white/20">
             <div
               className="h-full rounded-full bg-white transition-all duration-75 ease-linear"
               style={{width: `${progress}%`}}
@@ -120,7 +122,7 @@ export function LoadingScreen({onComplete}: LoadingScreenProps) {
         </div>
 
         {/* Bottom: social proof */}
-        <div className="absolute bottom-10 left-10 flex items-center gap-3">
+        <div className="absolute bottom-6 left-6 flex items-center gap-3 md:bottom-10 md:left-10">
           <div className="flex -space-x-2">
             {socialAvatars.map((src, i) => (
               <div key={i} className="size-8 overflow-hidden rounded-full ring-2 ring-[#52325d]">

@@ -212,62 +212,65 @@ export function DashboardScreen() {
     /* Outer container: lavender-tinted white, rounded, fills h-screen */
     <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-[#f3eff5]">
       {/* ══ TOP NAVIGATION ══════════════════════════════════════════════════ */}
-      <nav className="flex shrink-0 items-center gap-5 px-6 py-4">
+      <nav className="flex shrink-0 items-center gap-2 px-4 py-3 md:gap-5 md:px-6 md:py-4">
         <YoursTrulyLogo />
 
-        {/* Nav tabs */}
-        <div className="flex flex-1 items-center gap-1">
+        {/* Nav tabs — hidden on mobile, overflow-scroll on tablet */}
+        <div className="hidden flex-1 items-center gap-1 overflow-x-auto md:flex">
           {/* Home (inactive) */}
           <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
             <img alt="" className="size-4 shrink-0 opacity-60" src={imgNavHome} />
-            <span className="text-base text-[#71717a]">Home</span>
+            <span className="text-base whitespace-nowrap text-[#71717a]">Home</span>
           </div>
           {/* Myself (active) */}
           <div className="flex cursor-pointer items-center gap-2 rounded-xl bg-white px-3 py-1 shadow-sm">
             <img alt="" className="size-4 shrink-0" src={imgNavMyself} />
-            <span className="text-base text-[#0f0f14]">Myself</span>
+            <span className="text-base whitespace-nowrap text-[#0f0f14]">Myself</span>
           </div>
           {/* Lifetime */}
           <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
             <img alt="" className="size-4 shrink-0 opacity-60" src={imgNavLifetime} />
-            <span className="text-base text-[#71717a]">Lifetime</span>
+            <span className="text-base whitespace-nowrap text-[#71717a]">Lifetime</span>
           </div>
           {/* Bucket List */}
           <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
             <img alt="" className="size-4 shrink-0 opacity-60" src={imgNavBucketList} />
-            <span className="text-base text-[#71717a]">Bucket List</span>
+            <span className="text-base whitespace-nowrap text-[#71717a]">Bucket List</span>
           </div>
         </div>
 
+        {/* Spacer on mobile */}
+        <div className="flex-1 md:hidden" />
+
         {/* Upgrade button */}
-        <button className="flex h-8 cursor-pointer items-center gap-2 rounded-xl bg-[rgba(82,50,93,0.2)] px-3 transition-all hover:bg-[rgba(82,50,93,0.3)]">
-          <span className="text-xs font-medium text-[#52325d]">Upgrade</span>
-          <img alt="" className="size-5 shrink-0" src={imgNavUpgradeArrow} />
+        <button className="flex h-8 cursor-pointer items-center gap-1.5 rounded-xl bg-[rgba(82,50,93,0.2)] px-2.5 transition-all hover:bg-[rgba(82,50,93,0.3)] md:gap-2 md:px-3">
+          <span className="hidden text-xs font-medium text-[#52325d] sm:inline">Upgrade</span>
+          <img alt="Upgrade" className="size-5 shrink-0" src={imgNavUpgradeArrow} />
         </button>
 
         {/* User info */}
-        <div className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-[rgba(17,17,17,0.15)] pr-3 transition-all hover:bg-white/50">
+        <div className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-[rgba(17,17,17,0.15)] pr-2 transition-all hover:bg-white/50 md:pr-3">
           <div className="size-8 shrink-0 overflow-hidden rounded-lg bg-[#d4d4d8]">
             <img alt="Junior Garcia" className="size-full object-cover" src={imgJuniorGarcia} />
           </div>
-          <span className="text-sm text-[#11181c]">Junior Garcia</span>
+          <span className="hidden text-sm text-[#11181c] sm:inline">Junior Garcia</span>
         </div>
       </nav>
 
       {/* ══ MAIN CONTENT (gradient background) ══════════════════════════════ */}
       <div
-        className="flex min-h-0 flex-1 gap-6 overflow-hidden rounded-3xl p-6"
+        className="flex min-h-0 flex-1 flex-col gap-4 overflow-auto rounded-3xl p-4 md:flex-row md:gap-6 md:overflow-hidden md:p-6"
         style={{
           backgroundImage:
             "linear-gradient(0deg, rgba(254,252,232,0.6) 23.558%, rgba(173,143,185,0.6) 100%), linear-gradient(90deg, rgb(254,252,232) 0%, rgb(254,252,232) 100%)",
         }}
       >
         {/* ── Left sidebar ────────────────────────────────────────────────── */}
-        <aside className="flex h-full w-[280px] shrink-0 flex-col gap-4">
+        <aside className="hidden h-full w-[280px] shrink-0 flex-col gap-4 md:flex">
           {/* Greeting card */}
           <div
             className="flex shrink-0 flex-col gap-5 rounded-2xl p-6"
-            style={{background: "rgba(255,255,255,0.40)", backdropFilter: "blur(12px)"}}
+            style={{backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.40)"}}
           >
             {/* "Hey Junior Garcia!" */}
             <h2 className="text-xl leading-7">
@@ -278,9 +281,9 @@ export function DashboardScreen() {
             {/* Stats grid (4 cells with 1px gap) */}
             <div className="flex items-stretch gap-px">
               {[
-                {value: "1", label: "Memories"},
-                {value: "0", label: "People"},
-                {value: "0", label: "Messages"},
+                {label: "Memories", value: "1"},
+                {label: "People", value: "0"},
+                {label: "Messages", value: "0"},
               ].map(({label, value}) => (
                 <div
                   key={label}
@@ -315,7 +318,7 @@ export function DashboardScreen() {
           {/* Recent Activity card */}
           <div
             className="flex flex-1 flex-col gap-5 rounded-2xl p-6"
-            style={{background: "rgba(255,255,255,0.40)", backdropFilter: "blur(12px)"}}
+            style={{backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.40)"}}
           >
             {/* Header */}
             <div className="flex items-center justify-between">
@@ -422,39 +425,33 @@ export function DashboardScreen() {
         </aside>
 
         {/* ── Right content area ───────────────────────────────────────────── */}
-        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4 overflow-hidden">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4 overflow-visible md:overflow-hidden">
           {/* Memory prompts + Photo Story grid — fills available height */}
-          <div
-            className="grid min-h-0 flex-1 gap-3"
-            style={{
-              gridTemplateColumns: "1fr 1fr 1fr",
-              gridTemplateRows: "1fr 1fr",
-            }}
-          >
-            {/* Row 1, Col 1 – Memory 1 */}
-            <div className="min-h-0" style={{gridColumn: 1, gridRow: 1}}>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:min-h-0 lg:flex-1 lg:grid-cols-3 lg:[grid-template-rows:1fr_1fr]">
+            {/* Memory 1 */}
+            <div className="min-h-[160px] lg:min-h-0">
               <MemoryCard text="Describe the first home you remember living in" />
             </div>
-            {/* Row 1, Col 2 – Memory 2 */}
-            <div className="min-h-0" style={{gridColumn: 2, gridRow: 1}}>
+            {/* Memory 2 */}
+            <div className="min-h-[160px] lg:min-h-0">
               <MemoryCard text="How did you meet your partner/spouse?" />
             </div>
-            {/* Col 3 – Photo Story (spans 2 rows) */}
-            <div className="min-h-0" style={{gridColumn: 3, gridRow: "1 / span 2"}}>
+            {/* Photo Story – spans 2 rows on lg */}
+            <div className="min-h-[240px] lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:min-h-0">
               <MemoryCard isPhotoStory text="Describe the first home you remember living in" />
             </div>
-            {/* Row 2, Col 1 – Memory 3 (with arrow) */}
-            <div className="min-h-0" style={{gridColumn: 1, gridRow: 2}}>
+            {/* Memory 3 (with arrow) */}
+            <div className="min-h-[160px] lg:min-h-0">
               <MemoryCard showArrow text="Which home holds the most memories for you?" />
             </div>
-            {/* Row 2, Col 2 – Memory 4 */}
-            <div className="min-h-0" style={{gridColumn: 2, gridRow: 2}}>
+            {/* Memory 4 */}
+            <div className="min-h-[160px] lg:min-h-0">
               <MemoryCard text="How did your passion for Reading begin?" />
             </div>
           </div>
 
           {/* Quick actions row */}
-          <div className="flex shrink-0 items-center justify-center gap-2 py-1">
+          <div className="flex shrink-0 items-center gap-2 overflow-x-auto py-1 md:justify-center">
             <QuickAction iconSrc={imgIconShuffle} label="Shuffle" />
             <QuickAction icon={<IconAddPhotos />} label="Add Photos" />
             <QuickAction icon={<IconPostScript />} label="PostScript" />
@@ -465,7 +462,7 @@ export function DashboardScreen() {
       </div>
 
       {/* ══ BOTTOM AI BAR ════════════════════════════════════════════════════ */}
-      <div className="flex shrink-0 flex-col items-center gap-2 px-6 py-4">
+      <div className="flex shrink-0 flex-col items-center gap-2 px-4 py-4 md:px-6">
         <div
           className="flex w-full max-w-[776px] items-center gap-3 rounded-[20px] border border-[rgba(17,17,17,0.15)] bg-white px-[17px] py-[13px]"
           style={{boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.10), 0px 2px 4px 0px rgba(0,0,0,0.10)"}}
@@ -518,7 +515,7 @@ export function DashboardScreen() {
               <line x1="12" x2="12" y1="19" y2="23" />
               <line x1="8" x2="16" y1="23" y2="23" />
             </svg>
-            Voice
+            <span className="hidden sm:inline">Voice</span>
           </button>
 
           {/* Send button (purple→yellow gradient, semi-transparent = inactive) */}
@@ -532,7 +529,7 @@ export function DashboardScreen() {
           </button>
         </div>
 
-        <p className="text-center text-xs text-[#52525b]">
+        <p className="hidden text-center text-xs text-[#52525b] sm:block">
           Press ⌘K to open · Ask questions, navigate, or create content
         </p>
       </div>

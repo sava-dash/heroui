@@ -109,7 +109,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
       <div className="flex w-full items-center justify-center px-6 py-8 md:w-[520px] md:shrink-0 md:px-10">
         <div className="w-full max-w-[400px]">
           {/* Card — matches Figma node 6447:207285 */}
-          <div className="flex w-full flex-col gap-10 rounded-[20px] bg-gradient-to-b from-white/90 to-white/50 p-10 shadow-[0_8px_40px_rgba(82,50,93,0.12)] backdrop-blur-sm">
+          <div className="flex w-full flex-col gap-8 rounded-[20px] bg-gradient-to-b from-white/90 to-white/50 p-6 shadow-[0_8px_40px_rgba(82,50,93,0.12)] backdrop-blur-sm md:gap-10 md:p-10">
             {/* Logo */}
             <YoursTrulyLogo />
 
@@ -117,7 +117,7 @@ export function CreateAccountScreen({onSuccess}: CreateAccountScreenProps) {
             <div className="flex flex-col gap-6">
               {/* Title + Subtitle — Figma node 6447:207288 */}
               <div className="flex flex-col gap-2">
-                <h1 className="text-[36px] leading-[40px] font-medium text-foreground">
+                <h1 className="text-[28px] leading-[34px] font-medium text-foreground md:text-[36px] md:leading-[40px]">
                   Create Account
                 </h1>
                 <p className="text-base text-muted">Your eternity planning.</p>

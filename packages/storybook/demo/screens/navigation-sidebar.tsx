@@ -58,27 +58,27 @@ type NavGroup = {
 
 const navGroups: NavGroup[] = [
   {
+    items: [
+      {icon: <BarsUnaligned className="size-4" />, id: "overview", label: "Overview"},
+      {icon: <Person className="size-4" />, id: "myself", label: "Myself"},
+      {icon: <Star className="size-4" />, id: "lifetime", label: "Lifetime"},
+      {icon: <Bucket className="size-4" />, id: "bucket-list", label: "Bucket List"},
+      {icon: <ListUl className="size-4" />, id: "contacts", label: "Contacts"},
+      {icon: <Picture className="size-4" />, id: "gallery", label: "My Gallery"},
+    ],
     label: "Account",
-    items: [
-      {id: "overview", label: "Overview", icon: <BarsUnaligned className="size-4" />},
-      {id: "myself", label: "Myself", icon: <Person className="size-4" />},
-      {id: "lifetime", label: "Lifetime", icon: <Star className="size-4" />},
-      {id: "bucket-list", label: "Bucket List", icon: <Bucket className="size-4" />},
-      {id: "contacts", label: "Contacts", icon: <ListUl className="size-4" />},
-      {id: "gallery", label: "My Gallery", icon: <Picture className="size-4" />},
-    ],
   },
   {
+    items: [
+      {icon: <FaceRobot className="size-4" />, id: "ai-chat", label: "AI chat"},
+      {icon: <Comments className="size-4" />, id: "messages", label: "Messages"},
+      {icon: <CommentDot className="size-4" />, id: "ps-messages", label: "PS messages"},
+    ],
     label: "Chat",
-    items: [
-      {id: "ai-chat", label: "AI chat", icon: <FaceRobot className="size-4" />},
-      {id: "messages", label: "Messages", icon: <Comments className="size-4" />},
-      {id: "ps-messages", label: "PS messages", icon: <CommentDot className="size-4" />},
-    ],
   },
   {
+    items: [{icon: <ShoppingCart className="size-4" />, id: "marketplace", label: "Marketplace"}],
     label: "Shop",
-    items: [{id: "marketplace", label: "Marketplace", icon: <ShoppingCart className="size-4" />}],
   },
 ];
 

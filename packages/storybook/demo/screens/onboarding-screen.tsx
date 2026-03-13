@@ -256,13 +256,15 @@ function RadioCard({
 
 function StepLayout({children, wide = false}: {children: React.ReactNode; wide?: boolean}) {
   return (
-    <div
-      className={
-        "flex h-full w-full items-center justify-center overflow-y-auto px-6 pb-10 " +
-        (wide ? "" : "")
-      }
-    >
-      <div className={"w-full " + (wide ? "max-w-[1000px]" : "max-w-[860px]")}>{children}</div>
+    <div className="flex h-full w-full justify-center overflow-y-auto px-4 pb-6 md:px-6 md:pb-10">
+      <div
+        className={
+          "w-full self-start py-4 md:self-center md:py-0 " +
+          (wide ? "max-w-[1000px]" : "max-w-[860px]")
+        }
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -348,7 +350,7 @@ function StepYourRoots({onNext}: {onNext: () => void}) {
                     aria-label="Day"
                     className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                     placeholder="Day"
-                    style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                    style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                     value={day}
                     onChange={(e) => setDay(e.target.value)}
                   />
@@ -359,7 +361,7 @@ function StepYourRoots({onNext}: {onNext: () => void}) {
                     aria-label="Year"
                     className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                     placeholder="Year"
-                    style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                    style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                     value={year}
                     onChange={(e) => setYear(e.target.value)}
                   />
@@ -376,7 +378,7 @@ function StepYourRoots({onNext}: {onNext: () => void}) {
                 fullWidth
                 className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                 placeholder="e.g. Brooklyn, NY"
-                style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                 value={birthplace}
                 onChange={(e) => setBirthplace(e.target.value)}
               />
@@ -790,7 +792,7 @@ function StepJourney({onBack, onNext}: {onBack: () => void; onNext: () => void})
             className="rounded-[12px] bg-[#f4f4f5] text-sm shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
             placeholder="Share what's on your heart..."
             rows={3}
-            style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+            style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
             value={ownWords}
             onChange={(e) => setOwnWords(e.target.value)}
           />
@@ -856,7 +858,7 @@ function StepGoDeeper({onNext}: {onNext: () => void}) {
                 className="flex-1 rounded-[12px] bg-[#f4f4f5] text-sm shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                 placeholder="Share your thoughts..."
                 rows={3}
-                style={{borderWidth: "2px", borderColor: "#e4e4e7"}}
+                style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
