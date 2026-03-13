@@ -2,12 +2,11 @@
 
 import React from "react";
 
-// ─── Figma MCP Assets (node 6447:207422) ─────────────────────────────────────
+// ─── Figma MCP Assets (node 6464:237138) ─────────────────────────────────────
 
-// Logo (3-layer composition, same as other screens)
-const imgLogoG1 = "http://localhost:3845/assets/ced9389b911e644b10405db0ecad364067d366a9.svg";
-const imgLogoG2 = "http://localhost:3845/assets/57b2163b68fc0a18040a4c435e52440cca62197e.svg";
-const imgLogoG3 = "http://localhost:3845/assets/6972b4e060c8846dbc61d31fe2bee2c1773fccad.svg";
+// Logo — 2-layer composition (Figma nodes I6464:237140)
+const imgLogoTop = "http://localhost:3845/assets/259fd0b6436c1804a56e848bd02a52a481c93df9.svg";
+const imgLogoScript = "http://localhost:3845/assets/c958b989dfaf7dd1419877fc9546c3197e00ac69.svg";
 
 // Top nav icons (16×16)
 const imgNavHome = "http://localhost:3845/assets/d4ce978fd5ccd34f161c3ae4f5e4d8b545b6ae8a.svg";
@@ -23,8 +22,16 @@ const imgPortrait = "http://localhost:3845/assets/c10a50e47f38075dfbf4a32e609a27
 const imgJuniorGarcia = "http://localhost:3845/assets/6f23eab72541f5d36f4a4c2e593cd57d43a38757.png";
 const imgSparkle = "http://localhost:3845/assets/6b86fc14d82734e84edb2204e8ae8ee3cf1df703.svg";
 
-// Quick action icons
-const imgIconShuffle = "http://localhost:3845/assets/46453512ca94a32fcfd3d7734c8d3a104c7a57d8.svg";
+// Quick action icons (from Figma quick-action-btn nodes 6464:237226–237230)
+const imgIconShuffle = "http://localhost:3845/assets/c8fcc03a18fa40d4d49de0f8964b644fcdaa7436.svg";
+const imgIconAddPhotos =
+  "http://localhost:3845/assets/0399914035e0b16ad2c42d9bd14013937d4ffb64.svg";
+const imgIconPostScript =
+  "http://localhost:3845/assets/4fd090e974543efa51bf454dd70a9c2a83db8381.svg";
+const imgIconAddContact =
+  "http://localhost:3845/assets/802e56c6ca815a629071b478febed44f8af7c1d4.svg";
+const imgIconQuickMemory =
+  "http://localhost:3845/assets/e058b1d1eb770134226e31b14880dbf21fd73b5b.svg";
 
 // AI bar
 const imgSendBtn = "http://localhost:3845/assets/73b13c86027b65b71966c966bb1690c84c94fb2a.svg";
@@ -34,14 +41,13 @@ const imgSendBtn = "http://localhost:3845/assets/73b13c86027b65b71966c966bb1690c
 function YoursTrulyLogo() {
   return (
     <div aria-label="YoursTruly" className="relative h-8 w-[58px] shrink-0 select-none">
+      {/* YOURS part */}
       <div className="absolute" style={{inset: "0 12.08% 69.03% 10.89%"}}>
-        <img alt="" className="absolute block size-full max-w-none" src={imgLogoG1} />
+        <img alt="" className="absolute block size-full max-w-none" src={imgLogoTop} />
       </div>
-      <div className="absolute" style={{inset: "22.55% -0.21% 15.48% -1.39%"}}>
-        <img alt="" className="absolute block size-full max-w-none" src={imgLogoG2} />
-      </div>
+      {/* Truly script */}
       <div className="absolute" style={{inset: "32.04% 5.79% 0 4.58%"}}>
-        <img alt="" className="absolute block size-full max-w-none" src={imgLogoG3} />
+        <img alt="" className="absolute block size-full max-w-none" src={imgLogoScript} />
       </div>
     </div>
   );
@@ -61,7 +67,7 @@ function MemoryCard({isPhotoStory = false, showArrow = false, text}: MemoryCardP
       className="relative flex h-full flex-col overflow-hidden rounded-2xl p-1"
       style={{
         background:
-          "linear-gradient(180deg, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.16) 100%)",
+          "linear-gradient(180deg, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.24) 100%)",
       }}
     >
       <div className="flex flex-1 flex-col gap-4 p-3">
@@ -125,97 +131,31 @@ function MemoryCard({isPhotoStory = false, showArrow = false, text}: MemoryCardP
 
 type QuickActionProps = {
   label: string;
-  iconSrc?: string;
-  icon?: React.ReactNode;
+  iconSrc: string;
 };
 
-function QuickAction({icon, iconSrc, label}: QuickActionProps) {
+function QuickAction({iconSrc, label}: QuickActionProps) {
   return (
-    <button
-      className="flex w-[120px] flex-col items-center justify-center gap-1 rounded-lg border border-[rgba(74,53,82,0.2)] bg-[rgba(212,212,216,0.4)] px-1.5 py-2.5 transition-all hover:bg-white/60"
-      style={{minHeight: 64}}
-    >
+    <button className="flex flex-1 flex-col items-center justify-center gap-1 rounded-lg border border-[rgba(74,53,82,0.2)] bg-transparent px-[5px] py-[9px] transition-all hover:bg-white/60">
       <div className="flex size-5 items-center justify-center">
-        {iconSrc ? <img alt={label} className="size-full" src={iconSrc} /> : icon}
+        <img alt={label} className="size-full" src={iconSrc} />
       </div>
-      <span className="text-center text-sm text-[#3f3f46]">{label}</span>
+      <span className="text-center text-sm text-[#27272a]">{label}</span>
     </button>
   );
 }
-
-// ─── Quick action inline icons ────────────────────────────────────────────────
-
-const IconAddPhotos = () => (
-  <svg
-    className="size-full text-[#3f3f46]"
-    fill="none"
-    stroke="currentColor"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth={1.8}
-    viewBox="0 0 24 24"
-  >
-    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-    <circle cx="12" cy="13" r="4" />
-  </svg>
-);
-const IconPostScript = () => (
-  <svg
-    className="size-full text-[#3f3f46]"
-    fill="none"
-    stroke="currentColor"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth={1.8}
-    viewBox="0 0 24 24"
-  >
-    <rect height="18" rx="2" width="18" x="3" y="3" />
-    <line x1="3" x2="21" y1="9" y2="9" />
-    <line x1="9" x2="9" y1="21" y2="9" />
-  </svg>
-);
-const IconAddContact = () => (
-  <svg
-    className="size-full text-[#3f3f46]"
-    fill="none"
-    stroke="currentColor"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth={1.8}
-    viewBox="0 0 24 24"
-  >
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <line x1="19" x2="19" y1="8" y2="14" />
-    <line x1="22" x2="16" y1="11" y2="11" />
-  </svg>
-);
-const IconQuickMemory = () => (
-  <svg
-    className="size-full text-[#3f3f46]"
-    fill="none"
-    stroke="currentColor"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth={1.8}
-    viewBox="0 0 24 24"
-  >
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
 
 // ─── Main dashboard screen ────────────────────────────────────────────────────
 
 export function DashboardScreen() {
   return (
-    /* Outer container: lavender-tinted white, rounded, fills h-screen */
-    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-[#f3eff5]">
+    /* Outer container: neutral light gray per Figma default-100 */
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-[#f4f4f5]">
       {/* ══ TOP NAVIGATION ══════════════════════════════════════════════════ */}
-      <nav className="flex shrink-0 items-center gap-2 px-4 py-3 md:gap-5 md:px-6 md:py-4">
+      <nav className="flex shrink-0 items-center gap-5 px-6 py-4">
         <YoursTrulyLogo />
 
-        {/* Nav tabs — hidden on mobile, overflow-scroll on tablet */}
+        {/* Nav tabs */}
         <div className="hidden flex-1 items-center gap-1 overflow-x-auto md:flex">
           {/* Home (inactive) */}
           <div className="flex cursor-pointer items-center gap-2 rounded-[14px] px-3 py-1 transition-colors hover:bg-white/50">
@@ -223,7 +163,7 @@ export function DashboardScreen() {
             <span className="text-base whitespace-nowrap text-[#71717a]">Home</span>
           </div>
           {/* Myself (active) */}
-          <div className="flex cursor-pointer items-center gap-2 rounded-xl bg-white px-3 py-1 shadow-sm">
+          <div className="flex cursor-pointer items-center gap-2 rounded-[12px] bg-white px-3 py-1 shadow-sm">
             <img alt="" className="size-4 shrink-0" src={imgNavMyself} />
             <span className="text-base whitespace-nowrap text-[#0f0f14]">Myself</span>
           </div>
@@ -242,8 +182,8 @@ export function DashboardScreen() {
         {/* Spacer on mobile */}
         <div className="flex-1 md:hidden" />
 
-        {/* Upgrade button */}
-        <button className="flex h-8 cursor-pointer items-center gap-1.5 rounded-xl bg-[rgba(82,50,93,0.2)] px-2.5 transition-all hover:bg-[rgba(82,50,93,0.3)] md:gap-2 md:px-3">
+        {/* Upgrade button — outlined per Figma border-2 border-[#52325d] */}
+        <button className="flex h-8 cursor-pointer items-center gap-2 rounded-[12px] border-2 border-[#52325d] px-3 transition-all hover:bg-[rgba(82,50,93,0.06)]">
           <span className="hidden text-xs font-medium text-[#52325d] sm:inline">Upgrade</span>
           <img alt="Upgrade" className="size-5 shrink-0" src={imgNavUpgradeArrow} />
         </button>
@@ -254,23 +194,36 @@ export function DashboardScreen() {
             <img alt="Junior Garcia" className="size-full object-cover" src={imgJuniorGarcia} />
           </div>
           <span className="hidden text-sm text-[#11181c] sm:inline">Junior Garcia</span>
+          {/* Up/down caret */}
+          <svg
+            className="size-3 shrink-0 text-[#71717a]"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <polyline points="6 9 12 3 18 9" />
+            <polyline points="6 15 12 21 18 15" />
+          </svg>
         </div>
       </nav>
 
       {/* ══ MAIN CONTENT (gradient background) ══════════════════════════════ */}
       <div
-        className="flex min-h-0 flex-1 flex-col gap-4 overflow-auto rounded-3xl p-4 md:flex-row md:gap-6 md:overflow-hidden md:p-6"
+        className="flex min-h-0 flex-1 flex-col gap-6 overflow-auto rounded-3xl p-4 md:flex-row md:overflow-hidden md:p-6"
         style={{
           backgroundImage:
             "linear-gradient(0deg, rgba(254,252,232,0.6) 23.558%, rgba(173,143,185,0.6) 100%), linear-gradient(90deg, rgb(254,252,232) 0%, rgb(254,252,232) 100%)",
         }}
       >
         {/* ── Left sidebar ────────────────────────────────────────────────── */}
-        <aside className="hidden h-full w-[280px] shrink-0 flex-col gap-4 md:flex">
+        <aside className="hidden h-full w-[320px] shrink-0 flex-col gap-4 md:flex">
           {/* Greeting card */}
           <div
             className="flex shrink-0 flex-col gap-5 rounded-2xl p-6"
-            style={{backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.40)"}}
+            style={{backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.6)"}}
           >
             {/* "Hey Junior Garcia!" */}
             <h2 className="text-xl leading-7">
@@ -303,14 +256,19 @@ export function DashboardScreen() {
               </div>
             </div>
 
-            {/* Storage bar */}
+            {/* Storage bar — gradient fill per Figma from-[#f5a524] to-[#52325d] */}
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-[#71717a]">Storage</span>
-                <span className="text-xs text-[#71717a]">0 / 10 GB</span>
+                <span className="text-xs text-[#52525b]">
+                  <span className="font-semibold text-[#11181c]">0 / 10</span>
+                  {" GB"}
+                </span>
               </div>
-              <div className="h-1.5 overflow-hidden rounded-full bg-[#e4e4e7]">
-                <div className="h-full w-[28%] rounded-full bg-[#52325d]" />
+              {/* Track */}
+              <div className="h-2 overflow-hidden rounded-full bg-[rgba(255,255,255,0.6)]">
+                {/* Fill — orange → purple gradient */}
+                <div className="h-full w-[28%] rounded-full bg-gradient-to-r from-[#f5a524] to-[#52325d]" />
               </div>
             </div>
           </div>
@@ -318,7 +276,7 @@ export function DashboardScreen() {
           {/* Recent Activity card */}
           <div
             className="flex flex-1 flex-col gap-5 rounded-2xl p-6"
-            style={{backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.40)"}}
+            style={{backdropFilter: "blur(12px)", background: "rgba(255,255,255,0.6)"}}
           >
             {/* Header */}
             <div className="flex items-center justify-between">
@@ -450,25 +408,25 @@ export function DashboardScreen() {
             </div>
           </div>
 
-          {/* Quick actions row */}
-          <div className="flex shrink-0 items-center gap-2 overflow-x-auto py-1 md:justify-center">
+          {/* Quick actions row — Figma: max-w-[700px] centered, flex gap-4 */}
+          <div className="mx-auto flex w-full max-w-[700px] shrink-0 items-stretch gap-3 py-1">
             <QuickAction iconSrc={imgIconShuffle} label="Shuffle" />
-            <QuickAction icon={<IconAddPhotos />} label="Add Photos" />
-            <QuickAction icon={<IconPostScript />} label="PostScript" />
-            <QuickAction icon={<IconAddContact />} label="Add Contact" />
-            <QuickAction icon={<IconQuickMemory />} label="Quick Memory" />
+            <QuickAction iconSrc={imgIconAddPhotos} label="Add Photos" />
+            <QuickAction iconSrc={imgIconPostScript} label="PostScript" />
+            <QuickAction iconSrc={imgIconAddContact} label="Add Contact" />
+            <QuickAction iconSrc={imgIconQuickMemory} label="Quick Memory" />
           </div>
         </div>
       </div>
 
       {/* ══ BOTTOM AI BAR ════════════════════════════════════════════════════ */}
-      <div className="flex shrink-0 flex-col items-center gap-2 px-4 py-4 md:px-6">
+      <div className="flex shrink-0 flex-col items-center gap-2 px-6 py-4">
         <div
-          className="flex w-full max-w-[776px] items-center gap-3 rounded-[20px] border border-[rgba(17,17,17,0.15)] bg-white px-[17px] py-[13px]"
+          className="flex w-full max-w-[776px] items-center gap-3 rounded-[20px] border-2 border-[#4a3552] bg-gradient-to-b from-[rgba(255,255,255,0.8)] to-[rgba(255,255,255,0.48)] px-[17px] py-[13px]"
           style={{boxShadow: "0px 4px 6px 0px rgba(0,0,0,0.10), 0px 2px 4px 0px rgba(0,0,0,0.10)"}}
         >
           {/* ⌘ button */}
-          <button className="flex size-8 shrink-0 items-center justify-center rounded-xl border-2 border-[#d4d4d8] text-[#52525b] transition-all hover:border-[#52325d]/40 hover:text-[#52325d]">
+          <button className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-[rgba(212,212,216,0.4)] text-[#52525b] transition-all hover:bg-[rgba(212,212,216,0.6)]">
             <svg
               className="size-5"
               fill="none"
@@ -500,7 +458,7 @@ export function DashboardScreen() {
           </div>
 
           {/* Voice button */}
-          <button className="flex h-8 shrink-0 items-center gap-2 rounded-xl border-2 border-[#d4d4d8] px-3 text-xs font-medium text-[#0f0f14] transition-all hover:border-[#52325d]/30">
+          <button className="flex h-8 shrink-0 items-center gap-2 rounded-[12px] bg-[rgba(212,212,216,0.4)] px-3 text-xs font-medium text-[#0f0f14] transition-all hover:bg-[rgba(212,212,216,0.6)]">
             <svg
               className="size-5 text-[#52525b]"
               fill="none"
@@ -518,12 +476,10 @@ export function DashboardScreen() {
             <span className="hidden sm:inline">Voice</span>
           </button>
 
-          {/* Send button (purple→yellow gradient, semi-transparent = inactive) */}
+          {/* Send button — purple→yellow gradient, semi-transparent = inactive */}
           <button
-            className="flex size-8 shrink-0 items-center justify-center rounded-xl opacity-50 transition-opacity hover:opacity-70"
-            style={{
-              background: "linear-gradient(to right, #52325d, #f9c97c)",
-            }}
+            className="flex size-8 shrink-0 items-center justify-center rounded-[12px] opacity-50 transition-opacity hover:opacity-70"
+            style={{background: "linear-gradient(to right, #52325d, #f9c97c)"}}
           >
             <img alt="Send" className="size-5" src={imgSendBtn} />
           </button>
