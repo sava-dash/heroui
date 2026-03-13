@@ -1,9 +1,9 @@
 "use client";
 
-import {Button, Checkbox, Description, Input, Label, TextField} from "@heroui/react";
+import {Button, Input, Label, TextField} from "@heroui/react";
 import React from "react";
 
-// ─── Figma MCP assets (node 6447:206724) ─────────────────────────────────────
+// ─── Figma MCP assets (shared with create-account-screen) ────────────────────
 
 /* YoursTruly logo layers — 2 layers (node 6410:197243) */
 const imgLogoVector = "http://localhost:3845/assets/a49ad1a50211fc1256726d1bd0229f22b21f7e90.svg";
@@ -73,23 +73,21 @@ function OrDivider() {
   );
 }
 
-// ─── Create Account Screen ────────────────────────────────────────────────────
+// ─── Login Screen ─────────────────────────────────────────────────────────────
 
-export type CreateAccountScreenProps = {
-  /** Called when the user successfully submits the sign-up form. */
+export type LoginScreenProps = {
+  /** Called when the user successfully logs in. */
   onSuccess?: () => void;
-  /** Called when the user clicks "Log In". */
-  onLoginClick?: () => void;
+  /** Called when the user clicks "Sign Up". */
+  onSignUp?: () => void;
 };
 
-export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScreenProps) {
-  const [accepted, setAccepted] = React.useState(false);
-
+export function LoginScreen({onSignUp, onSuccess}: LoginScreenProps) {
   return (
     <div className="flex h-screen min-h-[600px] w-full overflow-hidden bg-gradient-to-br from-[#ad8fb9] to-[#fefce8]">
       {/* ── Left: vector watermark + brand copy ────────────────────────── */}
       <div className="relative hidden flex-1 overflow-hidden md:block">
-        {/* YOURS/Truly watermark vector (node 6447:207276) */}
+        {/* YOURS/Truly watermark vector */}
         <div aria-hidden className="pointer-events-none absolute inset-0 select-none">
           <img
             alt=""
@@ -116,9 +114,8 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
             Join YoursTruly, where your story lives on
           </p>
 
-          {/* Social proof — AvatarGroup sm+primary (node 2551:37356) */}
+          {/* Social proof — AvatarGroup sm+primary */}
           <div className="flex items-center gap-4">
-            {/* 5 photo avatars with double ring: border-4 primary + border-2 white */}
             <div className="flex pr-2">
               {[0, 1, 2, 3, 4].map((i) => (
                 <div
@@ -153,7 +150,7 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
       {/* ── Right: floating form card ───────────────────────────────────── */}
       <div className="flex w-full items-center justify-center px-6 py-8 md:w-[520px] md:shrink-0 md:px-10">
         <div className="w-full max-w-[400px]">
-          {/* Card — node 6447:207285 */}
+          {/* Card */}
           <div
             className="flex w-full flex-col gap-8 rounded-[20px] bg-gradient-to-b from-white/40 to-[rgba(255,255,255,0.24)] p-6 backdrop-blur-[10px] md:gap-10 md:p-10"
             style={{boxShadow: "0px 20px 25px 0px rgba(0,0,0,0.05)"}}
@@ -161,19 +158,19 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
             {/* Logo */}
             <YoursTrulyLogo />
 
-            {/* Main content — node 6447:207287, gap-24px */}
+            {/* Main content */}
             <div className="flex flex-col gap-6">
-              {/* Title + Subtitle — node 6447:207288, gap-8px */}
+              {/* Title + Subtitle */}
               <div className="flex flex-col gap-2">
                 <h1 className="text-[28px] leading-[34px] font-medium text-[#11181c] md:text-[36px] md:leading-[40px]">
-                  Create Account
+                  Welcome Back
                 </h1>
-                <p className="text-base font-normal text-[#3f3f46]">Your eternity planning.</p>
+                <p className="text-base font-normal text-[#3f3f46]">Your memories are waiting.</p>
               </div>
 
-              {/* Form section — node 6447:207291, gap-20px */}
+              {/* Form section */}
               <div className="flex flex-col gap-5">
-                {/* OAuth buttons — node 6447:207292, gap-16px */}
+                {/* OAuth buttons */}
                 <div className="flex gap-4">
                   <Button
                     className="h-10 flex-1 rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
@@ -191,10 +188,10 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
                   </Button>
                 </div>
 
-                {/* Or divider — node 6447:207295 */}
+                {/* Or divider */}
                 <OrDivider />
 
-                {/* Form fields + actions — node 6447:207299, gap-32px */}
+                {/* Form fields + actions */}
                 <form
                   className="flex flex-col gap-8"
                   onSubmit={(e) => {
@@ -202,19 +199,9 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
                     onSuccess?.();
                   }}
                 >
-                  {/* Input fields — node 6447:207300, gap-16px */}
+                  {/* Input fields */}
                   <div className="flex flex-col gap-4">
-                    {/* Full Name — node 6447:207301 */}
-                    <TextField className="gap-3" name="fullname" type="text">
-                      <Label className="text-xs font-normal text-[#52525b]">Full Name</Label>
-                      <Input
-                        fullWidth
-                        className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
-                      />
-                    </TextField>
-
-                    {/* Email — node 6447:207302 */}
+                    {/* Email */}
                     <TextField className="gap-3" name="email" type="email">
                       <Label className="text-xs font-normal text-[#52525b]">Email</Label>
                       <Input
@@ -224,52 +211,41 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
                       />
                     </TextField>
 
-                    {/* Password — node 6447:207303 */}
+                    {/* Password */}
                     <TextField className="gap-3" name="password" type="password">
-                      <Label className="text-xs font-normal text-[#52525b]">Password</Label>
+                      <div className="flex items-center justify-between">
+                        <Label className="text-xs font-normal text-[#52525b]">Password</Label>
+                        <button
+                          className="text-xs font-medium text-[#52325d] hover:underline"
+                          type="button"
+                        >
+                          Forgot password?
+                        </button>
+                      </div>
                       <Input
                         fullWidth
                         className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                         style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
                       />
-                      <Description className="text-[#a1a1aa]">8 charachters minimum</Description>
                     </TextField>
                   </div>
 
-                  {/* Privacy policy checkbox — node 6447:207304 */}
-                  <Checkbox id="privacy" isSelected={accepted} onChange={setAccepted}>
-                    <Checkbox.Control>
-                      <Checkbox.Indicator />
-                    </Checkbox.Control>
-                    <Checkbox.Content>
-                      <Label className="text-base text-[#11181c]" htmlFor="privacy">
-                        I accept the{" "}
-                        <span className="text-sm font-medium text-[#52325d]">Privacy Policy</span>
-                      </Label>
-                    </Checkbox.Content>
-                  </Checkbox>
-
-                  {/* Sign Up button — node 6447:207305, h-48px */}
+                  {/* Log In button */}
                   <Button
                     className="h-12 w-full rounded-[12px] text-base"
-                    isDisabled={!accepted}
                     type="submit"
                     variant="primary"
                   >
-                    Sign Up
+                    Log In
                   </Button>
                 </form>
               </div>
 
-              {/* Have an account? — node 6447:207306 */}
+              {/* Don't have an account? */}
               <div className="flex items-center justify-end gap-1 text-base font-medium">
-                <span className="text-[#52525b]">Have an account?</span>
-                <button
-                  className="text-[#11181c] hover:underline"
-                  type="button"
-                  onClick={onLoginClick}
-                >
-                  Log In
+                <span className="text-[#52525b]">Don&apos;t have an account?</span>
+                <button className="text-[#11181c] hover:underline" type="button" onClick={onSignUp}>
+                  Sign Up
                 </button>
               </div>
             </div>
