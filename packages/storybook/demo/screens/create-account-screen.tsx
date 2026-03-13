@@ -63,7 +63,7 @@ function OrDivider() {
           <img alt="" className="block size-full max-w-none" src={imgDividerLine} />
         </div>
       </div>
-      <span className="text-xs text-[#52525b]">Or</span>
+      <span className="text-xs text-[#71717a]">Or</span>
       <div className="relative h-0 min-h-px flex-1">
         <div className="absolute inset-[-1px_0_0_0]">
           <img alt="" className="block size-full max-w-none" src={imgDividerLine} />
@@ -151,12 +151,14 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
       </div>
 
       {/* ── Right: floating form card ───────────────────────────────────── */}
-      <div className="flex w-full items-center justify-center px-6 py-8 md:w-[520px] md:shrink-0 md:px-10">
-        <div className="w-full max-w-[400px]">
+      <div className="flex w-full items-center justify-center px-4 py-8 md:w-[620px] md:shrink-0 md:px-10">
+        <div className="w-full max-w-[540px]">
           {/* Card — node 6447:207285 */}
           <div
-            className="flex w-full flex-col gap-8 rounded-[20px] bg-gradient-to-b from-white/40 to-[rgba(255,255,255,0.24)] p-6 backdrop-blur-[10px] md:gap-10 md:p-10"
-            style={{boxShadow: "0px 20px 25px 0px rgba(0,0,0,0.05)"}}
+            className="flex w-full flex-col gap-8 rounded-[20px] bg-gradient-to-b from-white/40 to-[rgba(255,255,255,0.24)] p-6 backdrop-blur-[20px] md:gap-10 md:p-16"
+            style={{
+              boxShadow: "0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.05)",
+            }}
           >
             {/* Logo */}
             <YoursTrulyLogo />
@@ -205,46 +207,61 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
                   {/* Input fields — node 6447:207300, gap-16px */}
                   <div className="flex flex-col gap-4">
                     {/* Full Name — node 6447:207301 */}
-                    <TextField className="gap-3" name="fullname" type="text">
-                      <Label className="text-xs font-normal text-[#52525b]">Full Name</Label>
+                    <TextField className="gap-[12px]" name="fullname" type="text">
+                      <Label className="text-[12px] leading-[16px] font-normal text-[#52525b]">
+                        Full Name
+                      </Label>
                       <Input
                         fullWidth
-                        className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
+                        className="rounded-[12px] border-2 border-[#e4e4e7] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                       />
                     </TextField>
 
                     {/* Email — node 6447:207302 */}
-                    <TextField className="gap-3" name="email" type="email">
-                      <Label className="text-xs font-normal text-[#52525b]">Email</Label>
+                    <TextField className="gap-[12px]" name="email" type="email">
+                      <Label className="text-[12px] leading-[16px] font-normal text-[#52525b]">
+                        Email
+                      </Label>
                       <Input
                         fullWidth
-                        className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
+                        className="rounded-[12px] border-2 border-[#e4e4e7] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                       />
                     </TextField>
 
                     {/* Password — node 6447:207303 */}
-                    <TextField className="gap-3" name="password" type="password">
-                      <Label className="text-xs font-normal text-[#52525b]">Password</Label>
+                    <TextField className="gap-[12px]" name="password" type="password">
+                      <Label className="text-[12px] leading-[16px] font-normal text-[#52525b]">
+                        Password
+                      </Label>
                       <Input
                         fullWidth
-                        className="rounded-[12px] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
-                        style={{borderColor: "#e4e4e7", borderWidth: "2px"}}
+                        className="rounded-[12px] border-2 border-[#e4e4e7] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                       />
-                      <Description className="text-[#a1a1aa]">8 charachters minimum</Description>
+                      <Description className="px-1 text-[12px] text-[#a1a1aa]">
+                        8 charachters minimum
+                      </Description>
                     </TextField>
                   </div>
 
                   {/* Privacy policy checkbox — node 6447:207304 */}
-                  <Checkbox id="privacy" isSelected={accepted} onChange={setAccepted}>
-                    <Checkbox.Control>
+                  <Checkbox
+                    className="gap-2 p-2"
+                    id="privacy"
+                    isSelected={accepted}
+                    onChange={setAccepted}
+                  >
+                    <Checkbox.Control className="size-5 rounded-[6px] border-2 border-[#d4d4d8] shadow-none">
                       <Checkbox.Indicator />
                     </Checkbox.Control>
                     <Checkbox.Content>
-                      <Label className="text-base text-[#11181c]" htmlFor="privacy">
+                      <Label
+                        className="text-[16px] leading-[24px] font-normal text-[#11181c]"
+                        htmlFor="privacy"
+                      >
                         I accept the{" "}
-                        <span className="text-sm font-medium text-[#52325d]">Privacy Policy</span>
+                        <span className="text-[14px] font-medium text-[#52325d]">
+                          Privacy Policy
+                        </span>
                       </Label>
                     </Checkbox.Content>
                   </Checkbox>
