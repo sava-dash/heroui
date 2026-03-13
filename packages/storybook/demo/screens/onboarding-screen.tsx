@@ -1009,7 +1009,13 @@ export function OnboardingScreen({onStart}: OnboardingScreenProps) {
   const back = () => setStep((s) => Math.max(s - 1, 1) as Step);
 
   return (
-    <div className="flex h-screen min-h-[600px] w-full flex-col overflow-hidden">
+    <div
+      className="flex h-screen min-h-[600px] w-full flex-col overflow-hidden"
+      style={{
+        backgroundImage:
+          "linear-gradient(0deg, rgba(254,252,232,0.6) 23.558%, rgba(173,143,185,0.6) 100%), linear-gradient(90deg, rgb(254,252,232) 0%, rgb(254,252,232) 100%)",
+      }}
+    >
       {/* Step indicator — always visible at top */}
       <StepIndicator current={step} total={TOTAL_STEPS} />
 
