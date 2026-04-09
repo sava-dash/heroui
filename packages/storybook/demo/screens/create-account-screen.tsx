@@ -1,6 +1,6 @@
 "use client";
 
-import {Button, Checkbox, Description, Input, Label, TextField} from "@heroui/react";
+import {Button, Checkbox, Input, Label, TextField} from "@heroui/react";
 import React from "react";
 
 // ─── Figma MCP assets (node 6447:206724) ─────────────────────────────────────
@@ -11,7 +11,6 @@ const imgLogoVector1 = "http://localhost:3845/assets/4b937c769d974367a52057062f3
 
 /* OAuth provider icons */
 const imgGoogle = "http://localhost:3845/assets/c02760ad33978ce5bed2da9bf9d73acad802182a.png";
-const imgFacebook = "http://localhost:3845/assets/47a40744916bfdd8b1f5ffa3a71c03ad90bee25c.png";
 
 /* Background watermark vector (YOURS Truly) — node 6447:207276 */
 const imgBgVector = "http://localhost:3845/assets/ddad931a7ff8a76aea0893ed1035827dd76a3ef8.svg";
@@ -57,13 +56,13 @@ function YoursTrulyLogo() {
 
 function OrDivider() {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center gap-3">
       <div className="relative h-0 min-h-px flex-1">
         <div className="absolute inset-[-1px_0_0_0]">
           <img alt="" className="block size-full max-w-none" src={imgDividerLine} />
         </div>
       </div>
-      <span className="text-xs text-[#71717a]">Or</span>
+      <span className="shrink-0 text-xs text-[#71717a]">Or continue with email</span>
       <div className="relative h-0 min-h-px flex-1">
         <div className="absolute inset-[-1px_0_0_0]">
           <img alt="" className="block size-full max-w-none" src={imgDividerLine} />
@@ -167,30 +166,24 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
               {/* Title + Subtitle — node 6447:207288, gap-8px */}
               <div className="flex flex-col gap-2">
                 <h1 className="text-[28px] leading-[34px] font-medium text-[#11181c] md:text-[36px] md:leading-[40px]">
-                  Create Account
+                  Create your account
                 </h1>
-                <p className="text-base font-normal text-[#3f3f46]">Your eternity planning.</p>
+                {/* Free tier callout */}
+                <p className="text-sm font-normal text-[#71717a]">
+                  50 memories · 1 GB storage · 3 AI interviews
+                </p>
               </div>
 
               {/* Form section — node 6447:207291, gap-20px */}
               <div className="flex flex-col gap-5">
-                {/* OAuth buttons — node 6447:207292, gap-16px */}
-                <div className="flex gap-4">
-                  <Button
-                    className="h-10 flex-1 rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
-                    type="button"
-                  >
-                    <img aria-hidden alt="" className="size-5 shrink-0" src={imgGoogle} />
-                    Google
-                  </Button>
-                  <Button
-                    className="h-10 flex-1 rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
-                    type="button"
-                  >
-                    <img aria-hidden alt="" className="size-5 shrink-0" src={imgFacebook} />
-                    Facebook
-                  </Button>
-                </div>
+                {/* OAuth buttons — single Google */}
+                <Button
+                  className="h-10 w-full rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
+                  type="button"
+                >
+                  <img aria-hidden alt="" className="size-5 shrink-0" src={imgGoogle} />
+                  Continue with Google
+                </Button>
 
                 {/* Or divider — node 6447:207295 */}
                 <OrDivider />
@@ -236,13 +229,25 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
                         fullWidth
                         className="rounded-[12px] border-2 border-[#e4e4e7] bg-[#f4f4f5] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]"
                       />
-                      <Description className="px-1 text-[12px] text-[#a1a1aa]">
-                        8 charachters minimum
-                      </Description>
+                      {/* Password strength checklist */}
+                      <div className="flex flex-col gap-1 px-1">
+                        {[
+                          "At least 8 characters",
+                          "At least 1 uppercase letter",
+                          "At least 1 lowercase letter",
+                          "At least 1 number",
+                          "At least 1 special character (!@#$%^&*)",
+                        ].map((rule) => (
+                          <div key={rule} className="flex items-center gap-1.5">
+                            <div className="size-3 shrink-0 rounded-full bg-[#e4e4e7]" />
+                            <span className="text-[11px] text-[#a1a1aa]">{rule}</span>
+                          </div>
+                        ))}
+                      </div>
                     </TextField>
                   </div>
 
-                  {/* Privacy policy checkbox — node 6447:207304 */}
+                  {/* Terms + Privacy checkbox */}
                   <Checkbox
                     className="gap-2 p-2"
                     id="privacy"
@@ -254,13 +259,13 @@ export function CreateAccountScreen({onLoginClick, onSuccess}: CreateAccountScre
                     </Checkbox.Control>
                     <Checkbox.Content>
                       <Label
-                        className="text-[16px] leading-[24px] font-normal text-[#11181c]"
+                        className="text-[14px] leading-[22px] font-normal text-[#11181c]"
                         htmlFor="privacy"
                       >
-                        I accept the{" "}
-                        <span className="text-[14px] font-medium text-[#52325d]">
-                          Privacy Policy
-                        </span>
+                        I agree to the{" "}
+                        <span className="font-medium text-[#52325d]">Terms of Service</span>
+                        {" and "}
+                        <span className="font-medium text-[#52325d]">Privacy Policy</span>
                       </Label>
                     </Checkbox.Content>
                   </Checkbox>

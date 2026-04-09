@@ -632,16 +632,31 @@ function StepPassions({onBack, onNext}: {onBack: () => void; onNext: () => void}
 
 // ─── Step 3: Your Beliefs ─────────────────────────────────────────────────────
 
+// Grouped for display; flat array used for toggle chips
 const BELIEFS = [
+  // Major World Religions
   "Christianity",
   "Islam",
   "Judaism",
   "Hinduism",
   "Buddhism",
   "Sikhism",
-  "Spiritual but not religious",
+  // Eastern Traditions
+  "Taoism",
+  "Confucianism",
+  "Shinto",
+  "Jainism",
+  // Modern Spirituality
+  "New Age spirituality",
+  "Meditation traditions",
+  "Yoga philosophy",
+  // Philosophical
+  "Stoicism",
+  "Humanism",
+  // Other
   "Agnostic",
   "Atheist",
+  "Spiritual but not religious",
   "Other",
   "Prefer not to say",
 ];

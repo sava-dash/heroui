@@ -1,6 +1,6 @@
 "use client";
 
-import {Button, Input, Label, TextField} from "@heroui/react";
+import {Button, Checkbox, Input, Label, TextField} from "@heroui/react";
 import React from "react";
 
 // ─── Figma MCP assets (shared with create-account-screen) ────────────────────
@@ -11,7 +11,6 @@ const imgLogoVector1 = "http://localhost:3845/assets/4b937c769d974367a52057062f3
 
 /* OAuth provider icons */
 const imgGoogle = "http://localhost:3845/assets/c02760ad33978ce5bed2da9bf9d73acad802182a.png";
-const imgFacebook = "http://localhost:3845/assets/47a40744916bfdd8b1f5ffa3a71c03ad90bee25c.png";
 
 /* Background watermark vector (YOURS Truly) */
 const imgBgVector = "http://localhost:3845/assets/b54989e0f4e3e69b6236d253f1ee3d188dc671b2.svg";
@@ -57,13 +56,13 @@ function YoursTrulyLogo() {
 
 function OrDivider() {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center gap-3">
       <div className="relative h-0 min-h-px flex-1">
         <div className="absolute inset-[-1px_0_0_0]">
           <img alt="" className="block size-full max-w-none" src={imgDividerLine} />
         </div>
       </div>
-      <span className="text-xs text-[#71717a]">Or</span>
+      <span className="shrink-0 text-xs text-[#71717a]">Or continue with email</span>
       <div className="relative h-0 min-h-px flex-1">
         <div className="absolute inset-[-1px_0_0_0]">
           <img alt="" className="block size-full max-w-none" src={imgDividerLine} />
@@ -83,6 +82,8 @@ export type LoginScreenProps = {
 };
 
 export function LoginScreen({onSignUp, onSuccess}: LoginScreenProps) {
+  const [rememberMe, setRememberMe] = React.useState(false);
+
   return (
     <div className="flex h-screen min-h-[600px] w-full overflow-hidden bg-gradient-to-br from-[#ad8fb9] to-[#fefce8]">
       {/* ── Left: vector watermark + brand copy ────────────────────────── */}
@@ -165,7 +166,7 @@ export function LoginScreen({onSignUp, onSuccess}: LoginScreenProps) {
               {/* Title + Subtitle */}
               <div className="flex flex-col gap-2">
                 <h1 className="text-[28px] leading-[34px] font-medium text-[#11181c] md:text-[36px] md:leading-[40px]">
-                  Welcome Back
+                  Welcome back
                 </h1>
                 <p className="text-base font-normal text-[#3f3f46]">Your memories are waiting.</p>
               </div>
@@ -173,22 +174,13 @@ export function LoginScreen({onSignUp, onSuccess}: LoginScreenProps) {
               {/* Form section */}
               <div className="flex flex-col gap-5">
                 {/* OAuth buttons */}
-                <div className="flex gap-4">
-                  <Button
-                    className="h-10 flex-1 rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
-                    type="button"
-                  >
-                    <img aria-hidden alt="" className="size-5 shrink-0" src={imgGoogle} />
-                    Google
-                  </Button>
-                  <Button
-                    className="h-10 flex-1 rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
-                    type="button"
-                  >
-                    <img aria-hidden alt="" className="size-5 shrink-0" src={imgFacebook} />
-                    Facebook
-                  </Button>
-                </div>
+                <Button
+                  className="h-10 w-full rounded-[12px] border-2 border-[#d4d4d8] bg-[#f4f4f5] text-sm font-medium text-[#000000]"
+                  type="button"
+                >
+                  <img aria-hidden alt="" className="size-5 shrink-0" src={imgGoogle} />
+                  Continue with Google
+                </Button>
 
                 {/* Or divider */}
                 <OrDivider />
@@ -234,23 +226,49 @@ export function LoginScreen({onSignUp, onSuccess}: LoginScreenProps) {
                     </TextField>
                   </div>
 
-                  {/* Log In button */}
+                  {/* Remember me */}
+                  <Checkbox
+                    className="gap-2"
+                    id="remember"
+                    isSelected={rememberMe}
+                    onChange={setRememberMe}
+                  >
+                    <Checkbox.Control className="size-4 rounded-[4px] border-2 border-[#d4d4d8] shadow-none">
+                      <Checkbox.Indicator />
+                    </Checkbox.Control>
+                    <Checkbox.Content>
+                      <Label className="text-sm font-normal text-[#52525b]" htmlFor="remember">
+                        Remember me
+                      </Label>
+                    </Checkbox.Content>
+                  </Checkbox>
+
+                  {/* Sign In button */}
                   <Button
                     className="h-12 w-full rounded-[12px] text-base"
                     type="submit"
                     variant="primary"
                   >
-                    Log In
+                    Sign In
                   </Button>
                 </form>
               </div>
 
               {/* Don't have an account? */}
-              <div className="flex items-center justify-end gap-1 text-base font-medium">
-                <span className="text-[#52525b]">Don&apos;t have an account?</span>
-                <button className="text-[#11181c] hover:underline" type="button" onClick={onSignUp}>
-                  Sign Up
-                </button>
+              <div className="flex flex-col items-center gap-2 text-sm">
+                <div className="flex items-center gap-1 font-medium">
+                  <span className="text-[#52525b]">Don&apos;t have an account?</span>
+                  <button
+                    className="text-[#11181c] hover:underline"
+                    type="button"
+                    onClick={onSignUp}
+                  >
+                    Get started free
+                  </button>
+                </div>
+                <p className="text-center text-xs text-[#a1a1aa]">
+                  Your memories are encrypted and stored securely
+                </p>
               </div>
             </div>
           </div>
